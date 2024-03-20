@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+ import { StyledButton } from '@/styles';
 
 export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
   const [catData, setCatData] = useState({
@@ -39,7 +40,8 @@ export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
       console.log(result);
 
       if (onSuccess) {
-        onSuccess(result); // Call the onSuccess callback if provided
+        onSuccess(result);
+      
       }
     } catch (error) {
       console.error('Failed to create cat profile:', error);
@@ -50,7 +52,7 @@ export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
     <>
       <form
           onSubmit={handleSubmit}>  
-          <h3>CREATE A CAT PROFILE</h3>
+          <h2>Create a cat profile</h2>
           <input
             type="text"
             name="name"
@@ -109,7 +111,9 @@ export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
             checked={catData.active}
             onChange={handleChange} 
           /> <br />
-          <button type="submit">SAVE</button> 
+          <StyledButton>
+          <button type="submit">Save</button> 
+          </StyledButton>
       </div>  
       </form>
     </>
