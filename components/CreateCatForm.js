@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
- import { StyledButton } from '@/styles';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { StyledButton } from '@/styles';
 
-export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
-  const [catData, setCatData] = useState({
+export default function CreateCatForm({ cat = {} }) {
+  const initialCatDataState = {
     name: cat.name || '',
-    breed: cat.breed || '', // Ensure breed is included if you're using it in the form
+    breed: cat.breed || '', 
     gender: cat.gender || '',
     color: cat.color || '',
     dateOfBirth: cat.dateOfBirth || '',
     identityNumber: cat.identityNumber || '',
     transponderCode: cat.transponderCode || '',
     active: cat.active || false,
-  });
+  };
+  const [catData, setCatData] = useState({...initialCatDataState, ...cat});
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
-    setCatData({
-      ...catData,
+    setCatData((prevCatData) => ({
+      ...prevCatData,
       [name]: type === 'checkbox' ? checked : value,
-    });
+    }));
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -31,20 +34,23 @@ export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
         },
         body: JSON.stringify(catData),
       });
-
-      if (!response.ok) {
-        throw new Error('Something went wrong with the request.');
-      }
-
+  
       const result = await response.json();
-      console.log(result);
-
-      if (onSuccess) {
-        onSuccess(result);
-      
+  
+      if (!response.ok) {
+        const errorMessage = result.message || 'Something went wrong.';
+        toast.error(errorMessage);
+        return; //loose it
+      }
+  
+      if (response.status === 201) {
+        console.log(result);
+        toast.success(`${catData.name} added successfully!`);
+        setCatData(initialCatDataState);
       }
     } catch (error) {
-      console.error('Failed to create cat profile:', error);
+      console.error('Submission error:', error);
+      toast.error('Failed to add the cat due to a network or server error. Please try again.');
     }
   };
 
@@ -104,7 +110,7 @@ export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
             onChange={handleChange}
           />
       <div> 
-          <span>Active</span>
+          <h4>Active</h4>
           <input
             type="checkbox"
             name="active"
@@ -116,6 +122,7 @@ export default function CreateCatForm({ onCatCreated, cat = {}, onSuccess }) {
           </StyledButton>
       </div>  
       </form>
+      <ToastContainer />
     </>
   );
 }

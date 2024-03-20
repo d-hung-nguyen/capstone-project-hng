@@ -79,7 +79,7 @@ class Navbar extends React.PureComponent {
                 <NavBarToggle onClick={() => this.toggleNavBar()}>
                     <Hamburger />
                 </NavBarToggle>
-                <Logo href="/"><Image src="/logo.png" width={150} height={150} /> </Logo> 
+                <Logo href="/"><Image src="/logo.png" alt="logo" width={150} height={150} priority={true}/> </Logo> 
 
 
                 <MainNav display={this.state.displayNav}>
