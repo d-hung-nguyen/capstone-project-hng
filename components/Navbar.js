@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const Bar = styled.nav`
@@ -82,18 +83,18 @@ class Navbar extends React.PureComponent {
 
 
                 <MainNav display={this.state.displayNav}>
-                    <a href="/">
+                    <Link href="/">
                         <h4 >Home</h4>
-                    </a>
-                    <a href="/">
+                    </Link>
+                    <Link href="/">
                         <h4 >Lizzy</h4>
-                    </a>
-                    <a href="/">
+                    </Link>
+                    <Link href="/">
                         <h4 >Tom</h4>
-                    </a>
-                    <a href="/">
+                    </Link>
+                    <Link href="/">
                         <h4  >Create Profile</h4>
-                    </a>
+                    </Link>
                 </MainNav>
             </Bar>
         )
