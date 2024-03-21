@@ -1,4 +1,4 @@
-import Navbar from '../navbar'
+import Navbar from '@/components/Navbar'
 import { TableFooter, TableHeader } from '@/styles'
  
 export default function Layout({ children }) {
