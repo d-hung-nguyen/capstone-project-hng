@@ -327,10 +327,55 @@ export const StyledSaveButton = styled.button`
     background-color: ${theme.backgroundColors.purple};
   }
 `;
+export const StyledEditButton = styled.button`
+  background-color: ${theme.backgroundColors.blue};
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
 
-export const HomeBackground = styled.div`
-position: absolute;
-top: 0;
-left: 0;
-z-index: -1;
+  &:hover {
+    background-color: ${theme.backgroundColors.purple};
+  }
 `;
+
+
+
+export const StyledDeleteButton = styled.button`
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: ${theme.backgroundColors.orange};
+  }
+`;
+
+export const CatsListWrapper = styled.ul`
+display: flex;
+flex-direction: column;
+padding: ${theme.padding.large};
+margin: ${theme.margin.large};
+  `;    
+
+export const StyledCatsList = styled.li`
+border-collapse: collapse;
+padding: ${theme.padding.large};
+margin: ${theme.margin.large};
+  `;
+
+
+
+
+
+
