@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SaveButton from './button';
+import SaveButton from '@/components/Button';
+
 
 
 export default function CreateCatForm() {

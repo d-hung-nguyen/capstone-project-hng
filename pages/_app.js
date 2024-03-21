@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles"
-import Layout from '../components/layout'
+import Layout from "@/components/Layout"
 import { Lato } from 'next/font/google'
  
 const lato =Lato({
