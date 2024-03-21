@@ -1,24 +1,29 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
-export const theme = {
-  primaryColor: 'transparent',
-  backgroundcolor: "#FFFBEB",
-  backgroundcolor2: "#ECFDF5",
-  textColor: "##27272a",
-  slate100: "#f1f5f9",
-  secondaryColors: {
-    C1: "#f4511e",
-    C2: "#7cb342",
+ const theme = {
+  backgroundColors: {
+    div: "#ffffff",
+    body: "#f9fafb",
+    heroDiv: "#f8eceb",
+    blue: "#0b70db",
+    orange: "#ff5543",
+    purple: "#6b47d6",
+  },
+  colors: {
+    light: "#e6ebf2",
+    grey: "dbe2f0",
+    blue: "#0b70db",
+    orange: "#ff5543",
+    purple: "#6b47d6",
   },
 
-
-  fonts: {  
+  fonts: {
     heading: "Familjen Grotesk, sans-serif",
     text: "Lato, sans-serif",
-},
+  },
   fontSizes: {
-    xs: "1rem",
+    xs: "0.8rem",
     sm: "1.5rem",
     me: "3rem",
     lg: "6rem",
@@ -59,12 +64,8 @@ export const theme = {
     medium: "2px",
     thick: "4px",
   },
-  button: {
-    small: "2rem",
-    medium: "4rem",
-    large: "8rem",
-  },  
 };
+
 
 export default createGlobalStyle`
   
@@ -74,7 +75,7 @@ html {
   *,
   *:before,
   *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
   }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -84,15 +85,13 @@ html {
 header {
   display: flex;
   align-items: left;
-  flex-direction: row;
-  background-color: ${theme.secondaryColors};
   opacity: 0.5;
 }
 
 footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  font-size: ${theme.fontSizes.xs};
+
 
 }
 
@@ -104,7 +103,7 @@ body {
 
 h1, h2, h3, h4{
   font-family: ${theme.fonts.text};
-  shadow: 
+  box-shadow: ${theme.box.shadow};
 }
 
 h1{
@@ -123,17 +122,26 @@ h4{
 li{
   list-style: none;
   font-size: ${theme.fontSizes.medium}
+}
 
+label{
+  font-size: ${theme.fontSizes.medium}
+  min-width: 100px;
+}
+
+button{
+  font-size: ${theme.fontSizes.medium}
 }
 
 form{
   display: flex;
   flex-direction: column;
+
   padding: ${theme.padding.large};
   margin: ${theme.margin.large};
   border-radius: ${theme.borderRadius.large};
   box-shadow: ${theme.box.shadow};
-  background-color: ${theme.primaryColor};
+background-color: ${theme.backgroundColors.div};
   positon: relative;
   
 }
@@ -142,24 +150,13 @@ input{
   padding: ${theme.padding.small};
   margin: ${theme.margin.small};
   border-radius: ${theme.borderRadius.small};
-  border: ${theme.borderWidth.medium} solid ${theme.primaryColor};
+  border: ${theme.borderWidth.medium} solid ${theme.colors.light};
   box-shadow: ${theme.box.shadow};
-}
-  
-button{
-    padding: ${theme.padding.small};
-    border: ${theme.borderWidth.thin} solid ${theme.primaryColor};
-    border-radius: ${theme.borderRadius.small};
-    box-shadow: ${theme.box.shadow};
-    
-
-
 }
 
 p{
 font-size: ${theme.fontSizes.medium}
 }
-
 
 a {
   text-decoration: none;
@@ -244,6 +241,12 @@ export const GridArea = styled.div`
 ` 
 export const TableFooter = styled.div`  
   display: table-footer;
+  text-align: center;
+  media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: ${theme.padding.large};
+  }
   }
 `
 export const TableHeader = styled.div`
@@ -277,4 +280,48 @@ export const StyledHero = styled.div`
   position: absolute;
   z-index: 10;
 ` 
+export const MainNav = styled.ul`
+display: none;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @media (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        justify-content:  space-between;
+        width: 50%;
+    }
+`
+export const NavBarToggle = styled.span`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer; 
+  color: rgba(255,255,255,0.8);
+  font-size: 24px;
+  @media (min-width: 768px) {
+    display: none;
+`
+export const Hamburger = styled.div`
+  @media (min-width: 768px): {
+    display: none;
+  }
+`
 
+
+export const StyledSaveButton = styled.button`
+  background-color: ${theme.backgroundColors.blue};
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: ${theme.backgroundColors.purple};
+  }
+`;
