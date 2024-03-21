@@ -16,7 +16,7 @@ export default async function handler(request, response) {
       break;
 
     default:
-      response.setHeader('Allow', ['GET', 'POST']);
+      response.setHeader('Allow', ['POST']);
       response.status(405).end(`Method ${method} Not Allowed`);
   }
 }
