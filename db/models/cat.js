@@ -10,7 +10,5 @@ const catSchema = new mongoose.Schema({
   transponderCode: String,
   active: Boolean
 });
-
 const Cat = mongoose.models.Cat || mongoose.model('Cat', catSchema);
-
 export default Cat;

@@ -1,72 +1,98 @@
-import React from 'react';
-import { Hamburger, NavBarToggle, MainNav, SubNav, TableHeader, Block, Logo } from '@/styles';
+import React, { useState, useEffect, useRef } from 'react';
+import { Hamburger, NavBarToggle, MainNav, SubNav, TableHeader, Logo, HeaderImage, NavItem, Spacer } from '@/styles';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { set } from 'mongoose';
 
-
-const Navbar = (props) => {
+const Navbar = () => {
     const [displayNav, setDisplayNav] = useState(false);
+    const [showCreateProfile, setShowCreateProfile] = useState(false);
+    const [showLists, setShowLists] = useState(false);
+    const dropdownRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth <= 768) {
-                setDisplayNav(false);
-} else {
-                setDisplayNav(true);
+            setDisplayNav(window.innerWidth > 768);
+        };
+
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setShowCreateProfile(false); 
+                setShowLists(false);
             }
-        }
+        };
 
-        window.addEventListener('resize', handleResize);
 
+        handleResize(); 
         return () => {
             window.removeEventListener('resize', handleResize);
-        }
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
     }, []);
 
-    const toggleNavBar = () => {
-        setDisplayNav(!displayNav);
-    };
+    const toggleNavBar = () => setDisplayNav(!displayNav);
 
+    const toggleCreateProfile = () => setShowCreateProfile(!showCreateProfile);
+    const toggleLists = () => setShowLists(!showLists);
     return (
         <>
-<TableHeader>
+            <TableHeader>
+                <Hamburger>
+                    <NavBarToggle onClick={toggleNavBar}>
+                        <Image src="/hamburger.svg" alt="hamburger" width={30} height={30} />
+                    </NavBarToggle>
+                </Hamburger>
+                <MainNav style={{ display: displayNav ? 'flex' : 'none' }}>
+                    <NavItem>
+
+                    </NavItem>
+                    <Spacer />
+                    <NavItem >
+                        <Link href="/">
+ 
+        <h4>Home</h4>
+        </Link>
+    </NavItem>
+    <NavItem ref={dropdownRef}>
+        <h4  onClick={toggleCreateProfile} >Create Profile</h4>
+        {showCreateProfile&&(
+            <SubNav>
+                <Link href="/create-profile/cat">
+                    <h4>Cat</h4>
+                </Link>
+      
+      
+                <Link href="/create-profile/owner">
+                    <h4>Owner</h4>
+                </Link>
+          
+            </SubNav>
+        )}
+        </NavItem>
+        <NavItem ref={dropdownRef}>
+        <h4  onClick={toggleLists} >Lists</h4>
+        {showLists&&(
+            <SubNav>
+                <Link href="/lists/cats">
+                    <h4>Cat</h4>
+                </Link>
+      
+{/*       
+                <Link href="/lists/owner">
+                <h4>Owner</h4>
+            </Link> */}
+          
+            </SubNav>
+        )}
+        </NavItem>
+</MainNav>
             <Logo>
-            <Link href="/">
-                <Image src="/logo.png" alt="logo" width={100} height={100} priority={true} />
-            </Link>
+                <Image src="/logo.png" alt="logo" width={150} height={150} priority={true} />
             </Logo>
-            <Hamburger>
-                <NavBarToggle>
-                    <Image onClick={toggleNavBar} src="/hamburger.svg" alt="hamburger" width={30} height={30} />
-                </NavBarToggle>
-            </Hamburger>
-
-            <MainNav style={{ display: displayNav ? 'flex' : 'none' }}>
-                <Link href="/">
-                    <h4>Home</h4>
-                </Link>
-                <Link href="/">
-                    <h4>Lizzy</h4>
-                </Link>
-                <Link href="/">
-                    <h4>Tom</h4>
-                </Link>
-                <SubNav>
-                    <h4>Create Profile</h4>
-
-                    <Link href="/create-profile/cat">
-                        <h4>Cat</h4>
-                    </Link>
-                    <Link href="/create-profile/owner">
-                        <h4>Owner</h4>
-                    </Link>
-                </SubNav>
-            </MainNav>
             </TableHeader>
-
         </>
-    )
+    );
 };
 
 export default Navbar;
+

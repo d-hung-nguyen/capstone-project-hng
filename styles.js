@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
- const theme = {
+export const theme = {
   backgroundColors: {
     div: "#ffffff",
     body: "#f9fafb",
@@ -128,7 +128,6 @@ li{
 
 label{
   font-size: ${theme.fontSizes.medium}
-  min-width: 100px;
 }
 
 button{
@@ -138,12 +137,11 @@ button{
 form{
   display: flex;
   flex-direction: column;
-
   padding: ${theme.padding.large};
   margin: ${theme.margin.large};
   border-radius: ${theme.borderRadius.large};
   box-shadow: ${theme.box.shadow};
-background-color: ${theme.backgroundColors.div};
+  background-color: ${theme.backgroundColors.div};
   positon: relative;
   
 }
@@ -155,6 +153,15 @@ input{
   border: ${theme.borderWidth.medium} solid ${theme.colors.light};
   box-shadow: ${theme.box.shadow};
 }
+
+select{
+  padding: ${theme.padding.small};
+  margin: ${theme.margin.small};
+  border-radius: ${theme.borderRadius.small};
+  border: ${theme.borderWidth.medium} solid ${theme.colors.light};
+  box-shadow: ${theme.box.shadow};
+}
+
 
 p{
 font-size: ${theme.fontSizes.medium}
@@ -170,109 +177,36 @@ table {
 `;
 
 export const Logo = styled.div`
-  width: fit-content;
-  }
-`
-export const Inline = styled.div`
-  display: inline-block;
-  }
-`
-export const Flex = styled.div`
-  display: flex;
-  }
-`
-export const FlexColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  }
-`
-export const FlexRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  }
-`
-export const FlexWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  }
-`
-export const FlexCenter = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-`
-export const FlexSpaceBetween = styled.div`
-  display: flex;
-  justify-content: space-between;
-  }
-`
-export const FlexSpaceAround = styled.div`
-  display: flex;
-  justify-content: space-around;
-  }
-`
-export const Table = styled.div`
-  display: table;
-  }
-`
-export const TableRow = styled.div` 
-  display: table-row;
-  }
-`
-export const TableCell = styled.div`  
-  display: table-cell;
-  }
-`
-export const Grid = styled.div`
-  display: grid;
-  }
-`
-export const GridCol = styled.div`  
-  display: grid-column;
-  }
-`
-export const GridRow = styled.div`  
-  display: grid-row;
-  }
-`
-export const GridArea = styled.div`
+  
 
-  display: grid-area; 
-  }
-` 
+`
+
+
 export const TableFooter = styled.div`  
   display: flex;
-  justify-content: center;
-  padding: ${theme.padding.large};
-  margin: ${theme.margin.large};
+  align-items: center;
+  flex-direction: column;
+  padding: ${theme.padding.small};
   font-size: ${theme.fontSizes.xs};
-  border-top: ${theme.borderWidth.medium} solid ${theme.colors.light};
+  border-top: ${theme.borderWidth.medium} solid ${theme.colors.orange};
   }
 `
 export const TableHeader = styled.header`
-  position: sticky; 
-  padding:${theme.padding.large};
-  margin: ${theme.margin.large};
-  border-radius: ${theme.borderRadius.large};
-  box-shadow: ${theme.box.shadow};
+display: flex;
+flex-direction: row;
+box-shadow: ${theme.box.shadow};
+border-radius: ${theme.borderRadius.medium};
+`
+export const Spacer = styled.div`
+  height: 50px;
+  width: 200px;
+`
 
+export const HeaderImage = styled.div`
 
-  @media (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    padding: ${theme.padding.large};
-  }
+width: fit-content;
 `
-export const TableBody = styled.div`
-  display: table-body;
-  }
-`
-export const TableHead = styled.div`
-  display: table-head;
-  }
-`
+
 export const StyledButton = styled.div`
   display: flex;
  justify-content: center;
@@ -282,32 +216,28 @@ export const StyledHero = styled.div`
   z-index: 10;
 ` 
 export const MainNav = styled.ul`
-display: none;
     flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    @media (min-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        justify-content:  space-between;
-        width: 50%;
+`
+export const NavItem = styled.li`
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-color: black;
+    position: relative;
+    &:hover {
+        color: ${theme.colors.blue};
     }
 `
 export const SubNav = styled.ul`
-drop-down-menu: yes;
-display: block;
+
 `
 export const NavBarToggle = styled.span`
   cursor: pointer; 
   color: rgba(255,255,255,0.8);
   font-size: 24px;
-  @media (min-width: 768px) {
-    display: none;
 `
 export const Hamburger = styled.div`
-  @media (min-width: 768px): {
-    display: none;
+
   }
 `
 
@@ -363,15 +293,20 @@ export const StyledDeleteButton = styled.button`
 
 export const CatsListWrapper = styled.ul`
 display: flex;
-flex-direction: column;
-padding: ${theme.padding.large};
-margin: ${theme.margin.large};
+flex-direction: row;
+align-items: center;
+padding: ${theme.padding.medium};
+margin: ${theme.margin.medium};
+border-radius: ${theme.borderRadius.medium};
+background-color: ${theme.backgroundColors.heroDiv};
+box-shadow: ${theme.box.shadow};
   `;    
 
 export const StyledCatsList = styled.li`
 border-collapse: collapse;
 padding: ${theme.padding.large};
 margin: ${theme.margin.large};
+width: 450px;
   `;
 
 

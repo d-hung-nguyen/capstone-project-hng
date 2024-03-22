@@ -79,13 +79,18 @@ export default function CreateCatForm() {
           onChange={handleChange}
         />
         <label>Gender:</label>
-        <input
+        <select
           type="text"
           name="gender"
           placeholder="Gender"
           value={catData.gender}
           onChange={handleChange}
-        />
+          >
+             <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+          </select>
+
         <label>Color:</label>
         <input
           type="text"
