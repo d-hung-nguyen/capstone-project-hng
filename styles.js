@@ -81,6 +81,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
+  padding: ${theme.padding.large};
+  margin: ${theme.margin.large};
 
 header {
   display: flex;
@@ -167,8 +169,8 @@ table {
 }
 `;
 
-export const Block = styled.div`
-  display: block;
+export const Logo = styled.div`
+  width: fit-content;
   }
 `
 export const Inline = styled.div`
@@ -240,27 +242,26 @@ export const GridArea = styled.div`
   }
 ` 
 export const TableFooter = styled.div`  
-  display: table-footer;
-  text-align: center;
-  media (min-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    padding: ${theme.padding.large};
-  }
+  display: flex;
+  justify-content: center;
+  padding: ${theme.padding.large};
+  margin: ${theme.margin.large};
+  font-size: ${theme.fontSizes.xs};
+  border-top: ${theme.borderWidth.medium} solid ${theme.colors.light};
   }
 `
-export const TableHeader = styled.div`
-  display: table-header;
+export const TableHeader = styled.header`
+  position: sticky; 
   padding:${theme.padding.large};
   margin: ${theme.margin.large};
   border-radius: ${theme.borderRadius.large};
   box-shadow: ${theme.box.shadow};
-  position: relative;
-  z-index: 0;
+
 
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
+    justify-content:center;
     padding: ${theme.padding.large};
   }
 `
@@ -293,10 +294,11 @@ display: none;
         width: 50%;
     }
 `
+export const SubNav = styled.ul`
+drop-down-menu: yes;
+display: block;
+`
 export const NavBarToggle = styled.span`
-  position: absolute;
-  top: 10px;
-  right: 20px;
   cursor: pointer; 
   color: rgba(255,255,255,0.8);
   font-size: 24px;
@@ -324,4 +326,11 @@ export const StyledSaveButton = styled.button`
   &:hover {
     background-color: ${theme.backgroundColors.purple};
   }
+`;
+
+export const HomeBackground = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+z-index: -1;
 `;

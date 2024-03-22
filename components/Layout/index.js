@@ -4,14 +4,13 @@ import { TableFooter, TableHeader } from '@/styles'
 export default function Layout({ children }) {
   return (
     <>
-      <TableHeader>
       <Navbar />
-      </TableHeader>
+  
       <main>{children}</main>
  
-      <footer>
+      <TableFooter>
         Capstone Project for Hung Nguyen - neuefische 2024
-      </footer>
+      </TableFooter>
    
     </>
   )
