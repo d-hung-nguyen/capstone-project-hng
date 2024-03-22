@@ -25,41 +25,10 @@ export default async function handler(request, response) {
       }
       break;
 
-    case 'PUT':
-      try {
-        const { id } = request.query;
-        const cat = await Cat.findByIdAndUpdate(id, request.body, {
-          new: true,
-          runValidators: true
-        });
-
-        if (!cat) {
-          return response.status(400).json({ success: false, message: `No cat with id ${id}` });
-        }
-
-        response.status(200).json({ success: true, data: cat });
-      } catch (error) {
-        response.status(400).json({ success: false, message: error.message });
-      }
-      break;
-
-    case 'DELETE':
-      try {
-        const { id } = request.query;
-        const deletedCat = await Cat.findByIdAndDelete(id);
-
-        if (!deletedCat) {
-          return response.status(400).json({ success: false, message: `No cat with id ${id}` });
-        }
-
-        response.status(200).json({ success: true, data: {} });
-      } catch (error) {
-        response.status(400).json({ success: false, message: error.message });
-      }
-      break;
+  
 
     default:
-      response.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
+      response.setHeader('Allow', ['GET', 'POST']);
       response.status(405).end(`Method ${method} Not Allowed`)
   }
 }
