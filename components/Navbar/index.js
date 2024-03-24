@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Hamburger, NavBarToggle, MainNav, SubNav, TableHeader, Logo, HeaderImage, NavItem, Spacer } from '@/styles';
+import { Hamburger, NavBarToggle, MainNav, SubNav, TableHeader, Logo, HeaderImage, NavItem, Spacer } from "@/components/StyledComponents";
 import Image from 'next/image';
 import Link from 'next/link';
 import { set } from 'mongoose';
@@ -42,11 +42,8 @@ const Navbar = () => {
                         <Image src="/hamburger.svg" alt="hamburger" width={30} height={30} />
                     </NavBarToggle>
                 </Hamburger>
-                <MainNav style={{ display: displayNav ? 'flex' : 'none' }}>
-                    <NavItem>
-
-                    </NavItem>
-                    <Spacer />
+        <MainNav displayNav={displayNav}>
+                    
                     <NavItem >
                         <Link href="/">
  
@@ -76,18 +73,13 @@ const Navbar = () => {
                 <Link href="/lists/cats">
                     <h4>Cat</h4>
                 </Link>
-      
-{/*       
-                <Link href="/lists/owner">
-                <h4>Owner</h4>
-            </Link> */}
           
             </SubNav>
         )}
         </NavItem>
 </MainNav>
             <Logo>
-                <Image src="/logo.png" alt="logo" width={150} height={150} priority={true} />
+                <Image src="/1.png" alt="logo" width={150} height={47} priority={true} />
             </Logo>
             </TableHeader>
         </>
