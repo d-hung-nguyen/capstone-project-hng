@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import SaveButton from '../Button';
-import {StyledDeleteButton } from '@/styles';
+import { BlueButton, RedButton } from '../StyledComponents';
 
 function CatEdit({ cat, onSave, onCancel }) {
     const [name, setName] = useState(cat.name);
@@ -98,8 +97,8 @@ function CatEdit({ cat, onSave, onCancel }) {
                 />
                 <br />
                 
-            <SaveButton type="submit">Save</SaveButton>
-            <StyledDeleteButton type="button" onClick={onCancel}>Cancel</StyledDeleteButton>
+            <BlueButton type="submit"> Save</BlueButton>
+            <RedButton type="button" onClick={onCancel}>Cancel</RedButton>
         </form>
     );
 }
