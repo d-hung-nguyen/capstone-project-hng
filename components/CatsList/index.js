@@ -55,6 +55,7 @@ export default function CatsList() {
                 <CatsListWrapper key={cat._id}>
                     <StyledCatsList>
                         <h3>{cat.name}</h3>
+
             <p><strong>Gender:</strong> {cat.gender}</p>
             <p><strong>Breed:</strong> {cat.breed}</p>
             <p><strong>Color:</strong> {cat.color}</p>
@@ -71,4 +72,5 @@ export default function CatsList() {
         </>
     );
 }
+
 

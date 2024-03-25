@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BlueButton } from "../StyledComponents";
 
+
 export default function CreateCatForm() {
   const initialCatDataState = {
     name: "",
@@ -130,7 +131,6 @@ export default function CreateCatForm() {
           />{" "}
           <br />
         </h4>
-
         <BlueButton type="submit">Save</BlueButton>
       </form>
       <ToastContainer />

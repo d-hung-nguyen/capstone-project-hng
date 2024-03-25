@@ -77,7 +77,6 @@ margin-top: 10px;
   }
 `;
 
-
 export const BlueButton = styled.button`
   background-color: ${theme.backgroundColors.blue};
   color: white;
