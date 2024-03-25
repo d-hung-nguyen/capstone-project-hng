@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SaveButton from '@/components/Button';
+import { BlueButton } from '../StyledComponents';
 
 
 
@@ -107,10 +107,10 @@ export default function CreateOwnerForm() {
           checked={ownerData.active}
           onChange={handleChange}
         /> <br /></h4>
-        <SaveButton
+        <BlueButton
           type="submit">
           Save
-        </SaveButton>
+        </BlueButton>
       </form>
       <ToastContainer />
     </>

@@ -77,8 +77,7 @@ margin-top: 10px;
   }
 `;
 
-
-export const StyledSaveButton = styled.button`
+export const BlueButton = styled.button`
   background-color: ${theme.backgroundColors.blue};
   color: white;
   border: none;
@@ -93,8 +92,8 @@ export const StyledSaveButton = styled.button`
     background-color: ${theme.backgroundColors.purple};
   }
 `;
-export const StyledEditButton = styled.button`
-  background-color: ${theme.backgroundColors.blue};
+export const GreenButton = styled.button`
+ background-color: ${theme.backgroundColors.green};
   color: white;
   border: none;
   border-radius: 4px;
@@ -111,7 +110,7 @@ export const StyledEditButton = styled.button`
 
 
 
-export const StyledDeleteButton = styled.button`
+export const RedButton = styled.button`
   background-color: red;
   color: white;
   border: none;

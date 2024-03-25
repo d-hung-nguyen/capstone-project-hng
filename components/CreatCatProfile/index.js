@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SaveButton from "@/components/Button";
+import { BlueButton } from "../StyledComponents";
+
 
 export default function CreateCatForm() {
   const initialCatDataState = {
@@ -130,8 +131,7 @@ export default function CreateCatForm() {
           />{" "}
           <br />
         </h4>
-
-        <SaveButton type="submit">Save</SaveButton>
+        <BlueButton type="submit">Save</BlueButton>
       </form>
       <ToastContainer />
     </>
