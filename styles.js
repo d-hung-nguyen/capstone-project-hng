@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import styled from "styled-components";
 
 export const theme = {
   backgroundColors: {
@@ -26,8 +25,8 @@ export const theme = {
     xs: "0.8rem",
     sm: "1.5rem",
     me: "3rem",
-    lg: "6rem",
-    xl: "15rem",
+    lg: "5rem",
+    xl: "7rem",
   },
   spacing: {
     sm: '15px',
@@ -85,9 +84,7 @@ html {
   margin: ${theme.margin.large};
 
 header {
-  display: flex;
-  align-items: left;
-  opacity: 0.5;
+ 
 }
 
 footer {
@@ -103,10 +100,19 @@ body {
 
 }
 
-h1, h2, h3, h4{
+h1, h2{
   font-family: ${theme.fonts.text};
-  box-shadow: ${theme.box.shadow};
+  line-height: 2rem;
+  @media (max-width: 1367px) {
+  line-height: 6rem;
+  }
 }
+
+h3, h4{
+  font-family: ${theme.fonts.text};
+  line-height: 1.5rem;
+}
+
 
 h1{
 font-size: ${theme.fontSizes.xl}
@@ -175,142 +181,4 @@ table {
   border-collapse: collapse;
 }
 `;
-
-export const Logo = styled.div`
-  
-
-`
-
-
-export const TableFooter = styled.div`  
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: ${theme.padding.small};
-  font-size: ${theme.fontSizes.xs};
-  border-top: ${theme.borderWidth.medium} solid ${theme.colors.orange};
-  }
-`
-export const TableHeader = styled.header`
-display: flex;
-flex-direction: row;
-box-shadow: ${theme.box.shadow};
-border-radius: ${theme.borderRadius.medium};
-`
-export const Spacer = styled.div`
-  height: 50px;
-  width: 200px;
-`
-
-export const HeaderImage = styled.div`
-
-width: fit-content;
-`
-
-export const StyledButton = styled.div`
-  display: flex;
- justify-content: center;
-`
-export const StyledHero = styled.div`
-  position: absolute;
-  z-index: 10;
-` 
-export const MainNav = styled.ul`
-    flex-direction: column;
-`
-export const NavItem = styled.li`
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1rem;
-    text-color: black;
-    position: relative;
-    &:hover {
-        color: ${theme.colors.blue};
-    }
-`
-export const SubNav = styled.ul`
-
-`
-export const NavBarToggle = styled.span`
-  cursor: pointer; 
-  color: rgba(255,255,255,0.8);
-  font-size: 24px;
-`
-export const Hamburger = styled.div`
-
-  }
-`
-
-
-export const StyledSaveButton = styled.button`
-  background-color: ${theme.backgroundColors.blue};
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 8px;
-  font-size: 16px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-
-  &:hover {
-    background-color: ${theme.backgroundColors.purple};
-  }
-`;
-export const StyledEditButton = styled.button`
-  background-color: ${theme.backgroundColors.blue};
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 8px;
-  font-size: 16px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-
-  &:hover {
-    background-color: ${theme.backgroundColors.purple};
-  }
-`;
-
-
-
-export const StyledDeleteButton = styled.button`
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 8px;
-  font-size: 16px;
-  cursor: pointer;
-  display: block;
-  margin: 0 auto;
-
-  &:hover {
-    background-color: ${theme.backgroundColors.orange};
-  }
-`;
-
-export const CatsListWrapper = styled.ul`
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: ${theme.padding.medium};
-margin: ${theme.margin.medium};
-border-radius: ${theme.borderRadius.medium};
-background-color: ${theme.backgroundColors.heroDiv};
-box-shadow: ${theme.box.shadow};
-  `;    
-
-export const StyledCatsList = styled.li`
-border-collapse: collapse;
-padding: ${theme.padding.large};
-margin: ${theme.margin.large};
-width: 450px;
-  `;
-
-
-
-
-
 
