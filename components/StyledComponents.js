@@ -51,7 +51,6 @@ export const StyledHero = styled.div`
 `;
 export const MainNav = styled.ul`
   flex-direction: column;
-  display: ${(props) => (props.displayNav ? 'flex' : 'none')};
 `;
 export const NavItem = styled.li`
     padding: 10px;
@@ -64,6 +63,7 @@ export const NavItem = styled.li`
     }
 `;
 export const SubNav = styled.ul`
+ flex-direction: column;
 
 `;
 export const NavBarToggle = styled.span`

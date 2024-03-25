@@ -2,11 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/cats": "pages/api/cats.js",
-  "/api/owners": "pages/api/owners.js",
-  "/create-profile/cat": "pages/create-profile/cat.html",
-  "/create-profile/owner": "pages/create-profile/owner.html",
-  "/": "pages/index.html",
-  "/lists/cats": "pages/lists/cats.html",
-  "/404": "pages/404.html"
+  "/create-profile/cat": "pages/create-profile/cat.js",
+  "/": "pages/index.js",
+  "/create-profile/owner": "pages/create-profile/owner.js"
 }
