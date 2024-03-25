@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< Updated upstream
 import { CatsListWrapper, StyledCatsList, StyledDeleteButton, StyledEditButton } from '@/styles';
 
 import CatEdit from '@/components/CatEdit';
+=======
+import CatEdit from '@/components/CatEdit';
+import { CatsListWrapper, StyledCatsList, StyledDeleteButton, StyledEditButton } from '../StyledComponents';
+>>>>>>> Stashed changes
 
 export default function CatsList() {
     const [cats, setCats] = useState([]);
