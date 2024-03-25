@@ -1,8 +1,40 @@
 import { useState, useEffect } from "react";
-import { CatsListWrapper, StyledCatsList } from "@/components/StyledComponents";
+import { BlueButton, CatsListWrapper, RedButton, StyledCatsList } from "@/components/StyledComponents";
 
 export default function CatsList() {
   const [cats, setCats] = useState([]);
+  const [editingCat, setEditingCat] = useState(null);
+
+  useEffect(() => {
+      async function fetchCats() {
+          const response = await fetch('/api/cats');
+          const catsData = await response.json();
+          setCats(catsData.data);
+      }
+      fetchCats();
+  }, []);
+
+  async function handleDelete(id) {
+      await fetch(`/api/cats?id=${id}`, {
+          method: 'DELETE',
+      });
+      setCats((prevCats) => prevCats.filter((cat) => cat._id !== id));
+  }
+
+  function handleEditClick(cat) {
+      setEditingCat(cat);
+  }
+
+  function handleEditCancel() {
+      setEditingCat(null);
+  }
+
+  function handleEditSave(updatedCat) {
+      setCats((prevCats) =>
+          prevCats.map((cat) => (cat._id === updatedCat._id ? updatedCat : cat))
+      );
+      setEditingCat(null);
+  }
 
   useEffect(() => {
     async function fetchCats() {
@@ -27,6 +59,8 @@ export default function CatsList() {
             <p><strong>Transponder code:</strong> {cat.transponderCode}</p>
             <p><strong>Active:</strong> {cat.active ? 'Yes' : 'No'}</p>
           </StyledCatsList>
+     <BlueButton onClick={() => handleEditClick(cat)}> Edit</BlueButton>
+     <RedButton onClick={() => handleDelete(cat._id)}> Delete</RedButton>
         </CatsListWrapper>
       ))}
     </>

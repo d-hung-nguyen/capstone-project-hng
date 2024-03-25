@@ -3,9 +3,7 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/lists/cats": "pages/lists/cats.js",
-  "/": "pages/index.js",
-  "/api/cats": "pages/api/cats.js",
   "/create-profile/cat": "pages/create-profile/cat.js",
   "/create-profile/owner": "pages/create-profile/owner.js",
-  "/api/owners": "pages/api/owners.js"
+  "/api/cats": "pages/api/cats.js"
 }
