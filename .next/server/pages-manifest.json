@@ -3,7 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/lists/cats": "pages/lists/cats.js",
-  "/api/cats": "pages/api/cats.js",
-  "/create-profile/cat": "pages/create-profile/cat.js"
+  "/lists/cats": "pages/lists/cats.js"
 }
