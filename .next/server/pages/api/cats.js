@@ -1,183 +1,55 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 218;
-exports.ids = [218];
+exports.id = "pages/api/cats";
+exports.ids = ["pages/api/cats"];
 exports.modules = {
 
-/***/ 1185:
+/***/ "mongoose":
+/*!***************************!*\
+  !*** external "mongoose" ***!
+  \***************************/
 /***/ ((module) => {
 
 module.exports = require("mongoose");
 
 /***/ }),
 
-/***/ 6064:
+/***/ "(api)/./db/connect.js":
+/*!***********************!*\
+  !*** ./db/connect.js ***!
+  \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1185);
-/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);
-
-const MONGODB_URI = process.env.MONGODB_URI;
-if (!MONGODB_URI) {
-    throw new Error("no .env.loal");
-}
-let cached = global.mongoose;
-if (!cached) {
-    cached = global.mongoose = {
-        conn: null,
-        promise: null
-    };
-}
-async function dbConnect() {
-    if (cached.conn) {
-        return cached.conn;
-    }
-    if (!cached.promise) {
-        const opts = {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        };
-        cached.promise = mongoose__WEBPACK_IMPORTED_MODULE_0___default().connect(MONGODB_URI, opts).then((mongoose)=>{
-            return mongoose;
-        });
-    }
-    cached.conn = await cached.promise;
-    return cached.conn;
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dbConnect);
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\nconst MONGODB_URI = process.env.MONGODB_URI;\nif (!MONGODB_URI) {\n    throw new Error(\"no .env.loal\");\n}\nlet cached = global.mongoose;\nif (!cached) {\n    cached = global.mongoose = {\n        conn: null,\n        promise: null\n    };\n}\nasync function dbConnect() {\n    if (cached.conn) {\n        return cached.conn;\n    }\n    if (!cached.promise) {\n        const opts = {\n            useNewUrlParser: true,\n            useUnifiedTopology: true\n        };\n        cached.promise = mongoose__WEBPACK_IMPORTED_MODULE_0___default().connect(MONGODB_URI, opts).then((mongoose)=>{\n            return mongoose;\n        });\n    }\n    cached.conn = await cached.promise;\n    return cached.conn;\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dbConnect);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9kYi9jb25uZWN0LmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUFnQztBQUVoQyxNQUFNQyxjQUFjQyxRQUFRQyxHQUFHLENBQUNGLFdBQVc7QUFDM0MsSUFBSSxDQUFDQSxhQUFhO0lBQ2hCLE1BQU0sSUFBSUcsTUFBTTtBQUNsQjtBQUNBLElBQUlDLFNBQVNDLE9BQU9OLFFBQVE7QUFDNUIsSUFBSSxDQUFDSyxRQUFRO0lBQ1hBLFNBQVNDLE9BQU9OLFFBQVEsR0FBRztRQUFFTyxNQUFNO1FBQU1DLFNBQVM7SUFBSztBQUN6RDtBQUNBLGVBQWVDO0lBQ2IsSUFBSUosT0FBT0UsSUFBSSxFQUFFO1FBQ2YsT0FBT0YsT0FBT0UsSUFBSTtJQUNwQjtJQUNBLElBQUksQ0FBQ0YsT0FBT0csT0FBTyxFQUFFO1FBQ25CLE1BQU1FLE9BQU87WUFDWEMsaUJBQWlCO1lBQ2pCQyxvQkFBb0I7UUFDdEI7UUFDQVAsT0FBT0csT0FBTyxHQUFHUix1REFBZ0IsQ0FBQ0MsYUFBYVMsTUFBTUksSUFBSSxDQUFDLENBQUNkO1lBQ3pELE9BQU9BO1FBQ1Q7SUFDRjtJQUNBSyxPQUFPRSxJQUFJLEdBQUcsTUFBTUYsT0FBT0csT0FBTztJQUNsQyxPQUFPSCxPQUFPRSxJQUFJO0FBQ3BCO0FBQ0EsaUVBQWVFLFNBQVNBLEVBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9jYXBzdG9uZS1wcm9qZWN0LWhuZy8uL2RiL2Nvbm5lY3QuanM/Yzc0NiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgbW9uZ29vc2UgZnJvbSAnbW9uZ29vc2UnO1xuXG5jb25zdCBNT05HT0RCX1VSSSA9IHByb2Nlc3MuZW52Lk1PTkdPREJfVVJJO1xuaWYgKCFNT05HT0RCX1VSSSkge1xuICB0aHJvdyBuZXcgRXJyb3IoJ25vIC5lbnYubG9hbCcpO1xufVxubGV0IGNhY2hlZCA9IGdsb2JhbC5tb25nb29zZTtcbmlmICghY2FjaGVkKSB7XG4gIGNhY2hlZCA9IGdsb2JhbC5tb25nb29zZSA9IHsgY29ubjogbnVsbCwgcHJvbWlzZTogbnVsbCB9O1xufVxuYXN5bmMgZnVuY3Rpb24gZGJDb25uZWN0KCkge1xuICBpZiAoY2FjaGVkLmNvbm4pIHtcbiAgICByZXR1cm4gY2FjaGVkLmNvbm47XG4gIH1cbiAgaWYgKCFjYWNoZWQucHJvbWlzZSkge1xuICAgIGNvbnN0IG9wdHMgPSB7XG4gICAgICB1c2VOZXdVcmxQYXJzZXI6IHRydWUsXG4gICAgICB1c2VVbmlmaWVkVG9wb2xvZ3k6IHRydWUsXG4gICAgfTtcbiAgICBjYWNoZWQucHJvbWlzZSA9IG1vbmdvb3NlLmNvbm5lY3QoTU9OR09EQl9VUkksIG9wdHMpLnRoZW4oKG1vbmdvb3NlKSA9PiB7XG4gICAgICByZXR1cm4gbW9uZ29vc2U7XG4gICAgfSk7XG4gIH1cbiAgY2FjaGVkLmNvbm4gPSBhd2FpdCBjYWNoZWQucHJvbWlzZTtcbiAgcmV0dXJuIGNhY2hlZC5jb25uO1xufVxuZXhwb3J0IGRlZmF1bHQgZGJDb25uZWN0OyJdLCJuYW1lcyI6WyJtb25nb29zZSIsIk1PTkdPREJfVVJJIiwicHJvY2VzcyIsImVudiIsIkVycm9yIiwiY2FjaGVkIiwiZ2xvYmFsIiwiY29ubiIsInByb21pc2UiLCJkYkNvbm5lY3QiLCJvcHRzIiwidXNlTmV3VXJsUGFyc2VyIiwidXNlVW5pZmllZFRvcG9sb2d5IiwiY29ubmVjdCIsInRoZW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./db/connect.js\n");
 
 /***/ }),
 
-/***/ 2442:
+/***/ "(api)/./db/models/cat.js":
+/*!**************************!*\
+  !*** ./db/models/cat.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\nconst catSchema = new (mongoose__WEBPACK_IMPORTED_MODULE_0___default().Schema)({\n    name: {\n        type: String,\n        required: true\n    },\n    breed: String,\n    gender: String,\n    color: String,\n    dateOfBirth: Date,\n    identityNumber: String,\n    transponderCode: String,\n    active: Boolean\n});\nconst Cat = (mongoose__WEBPACK_IMPORTED_MODULE_0___default().models).Cat || mongoose__WEBPACK_IMPORTED_MODULE_0___default().model(\"Cat\", catSchema);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Cat);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9kYi9tb2RlbHMvY2F0LmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUFnQztBQUVoQyxNQUFNQyxZQUFZLElBQUlELHdEQUFlLENBQUM7SUFDcENHLE1BQU07UUFBRUMsTUFBTUM7UUFBUUMsVUFBVTtJQUFLO0lBQ3JDQyxPQUFPRjtJQUNQRyxRQUFRSDtJQUNSSSxPQUFPSjtJQUNQSyxhQUFhQztJQUNiQyxnQkFBZ0JQO0lBQ2hCUSxpQkFBaUJSO0lBQ2pCUyxRQUFRQztBQUNWO0FBQ0EsTUFBTUMsTUFBTWhCLHdEQUFlLENBQUNnQixHQUFHLElBQUloQixxREFBYyxDQUFDLE9BQU9DO0FBQ3pELGlFQUFlZSxHQUFHQSxFQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vY2Fwc3RvbmUtcHJvamVjdC1obmcvLi9kYi9tb2RlbHMvY2F0LmpzP2ZlMGIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IG1vbmdvb3NlIGZyb20gJ21vbmdvb3NlJztcblxuY29uc3QgY2F0U2NoZW1hID0gbmV3IG1vbmdvb3NlLlNjaGVtYSh7XG4gIG5hbWU6IHsgdHlwZTogU3RyaW5nLCByZXF1aXJlZDogdHJ1ZSB9LFxuICBicmVlZDogU3RyaW5nLFxuICBnZW5kZXI6IFN0cmluZyxcbiAgY29sb3I6IFN0cmluZyxcbiAgZGF0ZU9mQmlydGg6IERhdGUsXG4gIGlkZW50aXR5TnVtYmVyOiBTdHJpbmcsXG4gIHRyYW5zcG9uZGVyQ29kZTogU3RyaW5nLFxuICBhY3RpdmU6IEJvb2xlYW5cbn0pO1xuY29uc3QgQ2F0ID0gbW9uZ29vc2UubW9kZWxzLkNhdCB8fCBtb25nb29zZS5tb2RlbCgnQ2F0JywgY2F0U2NoZW1hKTtcbmV4cG9ydCBkZWZhdWx0IENhdDsiXSwibmFtZXMiOlsibW9uZ29vc2UiLCJjYXRTY2hlbWEiLCJTY2hlbWEiLCJuYW1lIiwidHlwZSIsIlN0cmluZyIsInJlcXVpcmVkIiwiYnJlZWQiLCJnZW5kZXIiLCJjb2xvciIsImRhdGVPZkJpcnRoIiwiRGF0ZSIsImlkZW50aXR5TnVtYmVyIiwidHJhbnNwb25kZXJDb2RlIiwiYWN0aXZlIiwiQm9vbGVhbiIsIkNhdCIsIm1vZGVscyIsIm1vZGVsIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./db/models/cat.js\n");
 
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ handler)
-});
+/***/ }),
 
-// EXTERNAL MODULE: ./db/connect.js
-var connect = __webpack_require__(6064);
-// EXTERNAL MODULE: external "mongoose"
-var external_mongoose_ = __webpack_require__(1185);
-var external_mongoose_default = /*#__PURE__*/__webpack_require__.n(external_mongoose_);
-;// CONCATENATED MODULE: ./db/models/cat.js
+/***/ "(api)/./pages/api/cats/index.js":
+/*!*********************************!*\
+  !*** ./pages/api/cats/index.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-const catSchema = new (external_mongoose_default()).Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    breed: String,
-    gender: String,
-    color: String,
-    dateOfBirth: Date,
-    identityNumber: String,
-    transponderCode: String,
-    active: Boolean
-});
-const Cat = (external_mongoose_default()).models.Cat || external_mongoose_default().model("Cat", catSchema);
-/* harmony default export */ const models_cat = (Cat);
-
-;// CONCATENATED MODULE: ./pages/api/cats/index.js
-
-
-async function handler(request, response) {
-    await (0,connect/* default */.Z)();
-    const { method } = request;
-    switch(method){
-        case "GET":
-            try {
-                const cats = await models_cat.find({});
-                response.status(200).json({
-                    success: true,
-                    data: cats
-                });
-            } catch (error) {
-                response.status(500).json({
-                    success: false,
-                    message: error.message
-                });
-            }
-            break;
-        case "POST":
-            try {
-                const cat = await models_cat.create(request.body);
-                response.status(201).json({
-                    success: true,
-                    data: cat
-                });
-            } catch (error) {
-                response.status(400).json({
-                    success: false,
-                    message: error.message
-                });
-            }
-            break;
-        case "PUT":
-            try {
-                const { id } = request.query;
-                const cat = await models_cat.findByIdAndUpdate(id, request.body, {
-                    new: true,
-                    runValidators: true
-                });
-                if (!cat) {
-                    return response.status(400).json({
-                        success: false,
-                        message: `No cat with id ${id}`
-                    });
-                }
-                response.status(200).json({
-                    success: true,
-                    data: cat
-                });
-            } catch (error) {
-                response.status(400).json({
-                    success: false,
-                    message: error.message
-                });
-            }
-            break;
-        case "DELETE":
-            try {
-                const { id } = request.query;
-                const deletedCat = await models_cat.findByIdAndDelete(id);
-                if (!deletedCat) {
-                    return response.status(400).json({
-                        success: false,
-                        message: `No cat with id ${id}`
-                    });
-                }
-                response.status(200).json({
-                    success: true,
-                    data: {}
-                });
-            } catch (error) {
-                response.status(400).json({
-                    success: false,
-                    message: error.message
-                });
-            }
-            break;
-        default:
-            response.setHeader("Allow", [
-                "GET",
-                "POST",
-                "PUT",
-                "DELETE"
-            ]);
-            response.status(405).end(`Method ${method} Not Allowed`);
-    }
-}
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _db_connect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../db/connect */ \"(api)/./db/connect.js\");\n/* harmony import */ var _db_models_cat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../db/models/cat */ \"(api)/./db/models/cat.js\");\n\n\nasync function handler(request, response) {\n    await (0,_db_connect__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n    const { method } = request;\n    switch(method){\n        case \"GET\":\n            try {\n                const cats = await _db_models_cat__WEBPACK_IMPORTED_MODULE_1__[\"default\"].find({});\n                response.status(200).json({\n                    success: true,\n                    data: cats\n                });\n            } catch (error) {\n                response.status(500).json({\n                    success: false,\n                    message: error.message\n                });\n            }\n            break;\n        case \"POST\":\n            try {\n                const cat = await _db_models_cat__WEBPACK_IMPORTED_MODULE_1__[\"default\"].create(request.body);\n                response.status(201).json({\n                    success: true,\n                    data: cat\n                });\n            } catch (error) {\n                response.status(400).json({\n                    success: false,\n                    message: error.message\n                });\n            }\n            break;\n        case \"PUT\":\n            try {\n                const { id } = request.query;\n                const cat = await _db_models_cat__WEBPACK_IMPORTED_MODULE_1__[\"default\"].findByIdAndUpdate(id, request.body, {\n                    new: true,\n                    runValidators: true\n                });\n                if (!cat) {\n                    return response.status(400).json({\n                        success: false,\n                        message: `No cat with id ${id}`\n                    });\n                }\n                response.status(200).json({\n                    success: true,\n                    data: cat\n                });\n            } catch (error) {\n                response.status(400).json({\n                    success: false,\n                    message: error.message\n                });\n            }\n            break;\n        case \"DELETE\":\n            try {\n                const { id } = request.query;\n                const deletedCat = await _db_models_cat__WEBPACK_IMPORTED_MODULE_1__[\"default\"].findByIdAndDelete(id);\n                if (!deletedCat) {\n                    return response.status(400).json({\n                        success: false,\n                        message: `No cat with id ${id}`\n                    });\n                }\n                response.status(200).json({\n                    success: true,\n                    data: {}\n                });\n            } catch (error) {\n                response.status(400).json({\n                    success: false,\n                    message: error.message\n                });\n            }\n            break;\n        default:\n            response.setHeader(\"Allow\", [\n                \"GET\",\n                \"POST\",\n                \"PUT\",\n                \"DELETE\"\n            ]);\n            response.status(405).end(`Method ${method} Not Allowed`);\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvY2F0cy9pbmRleC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7QUFBNEM7QUFDSDtBQUUxQixlQUFlRSxRQUFRQyxPQUFPLEVBQUVDLFFBQVE7SUFDckQsTUFBTUosdURBQVNBO0lBRWYsTUFBTSxFQUFFSyxNQUFNLEVBQUUsR0FBR0Y7SUFFbkIsT0FBUUU7UUFDTixLQUFLO1lBQ0gsSUFBSTtnQkFDRixNQUFNQyxPQUFPLE1BQU1MLDJEQUFRLENBQUMsQ0FBQztnQkFDN0JHLFNBQVNJLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7b0JBQUVDLFNBQVM7b0JBQU1DLE1BQU1MO2dCQUFLO1lBQ3hELEVBQUUsT0FBT00sT0FBTztnQkFDZFIsU0FBU0ksTUFBTSxDQUFDLEtBQUtDLElBQUksQ0FBQztvQkFBRUMsU0FBUztvQkFBT0csU0FBU0QsTUFBTUMsT0FBTztnQkFBQztZQUNyRTtZQUNBO1FBRUYsS0FBSztZQUNILElBQUk7Z0JBQ0YsTUFBTUMsTUFBTSxNQUFNYiw2REFBVSxDQUFDRSxRQUFRYSxJQUFJO2dCQUN6Q1osU0FBU0ksTUFBTSxDQUFDLEtBQUtDLElBQUksQ0FBQztvQkFBRUMsU0FBUztvQkFBTUMsTUFBTUc7Z0JBQUk7WUFDdkQsRUFBRSxPQUFPRixPQUFPO2dCQUNkUixTQUFTSSxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO29CQUFFQyxTQUFTO29CQUFPRyxTQUFTRCxNQUFNQyxPQUFPO2dCQUFDO1lBQ3JFO1lBQ0E7UUFFRixLQUFLO1lBQ0gsSUFBSTtnQkFDRixNQUFNLEVBQUVJLEVBQUUsRUFBRSxHQUFHZCxRQUFRZSxLQUFLO2dCQUM1QixNQUFNSixNQUFNLE1BQU1iLHdFQUFxQixDQUFDZ0IsSUFBSWQsUUFBUWEsSUFBSSxFQUFFO29CQUN4REksS0FBSztvQkFDTEMsZUFBZTtnQkFDakI7Z0JBRUEsSUFBSSxDQUFDUCxLQUFLO29CQUNSLE9BQU9WLFNBQVNJLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7d0JBQUVDLFNBQVM7d0JBQU9HLFNBQVMsQ0FBQyxlQUFlLEVBQUVJLEdBQUcsQ0FBQztvQkFBQztnQkFDckY7Z0JBRUFiLFNBQVNJLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7b0JBQUVDLFNBQVM7b0JBQU1DLE1BQU1HO2dCQUFJO1lBQ3ZELEVBQUUsT0FBT0YsT0FBTztnQkFDZFIsU0FBU0ksTUFBTSxDQUFDLEtBQUtDLElBQUksQ0FBQztvQkFBRUMsU0FBUztvQkFBT0csU0FBU0QsTUFBTUMsT0FBTztnQkFBQztZQUNyRTtZQUNBO1FBRUYsS0FBSztZQUNILElBQUk7Z0JBQ0YsTUFBTSxFQUFFSSxFQUFFLEVBQUUsR0FBR2QsUUFBUWUsS0FBSztnQkFDNUIsTUFBTUksYUFBYSxNQUFNckIsd0VBQXFCLENBQUNnQjtnQkFFL0MsSUFBSSxDQUFDSyxZQUFZO29CQUNmLE9BQU9sQixTQUFTSSxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO3dCQUFFQyxTQUFTO3dCQUFPRyxTQUFTLENBQUMsZUFBZSxFQUFFSSxHQUFHLENBQUM7b0JBQUM7Z0JBQ3JGO2dCQUVBYixTQUFTSSxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO29CQUFFQyxTQUFTO29CQUFNQyxNQUFNLENBQUM7Z0JBQUU7WUFDdEQsRUFBRSxPQUFPQyxPQUFPO2dCQUNkUixTQUFTSSxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO29CQUFFQyxTQUFTO29CQUFPRyxTQUFTRCxNQUFNQyxPQUFPO2dCQUFDO1lBQ3JFO1lBQ0E7UUFFRjtZQUNFVCxTQUFTb0IsU0FBUyxDQUFDLFNBQVM7Z0JBQUM7Z0JBQU87Z0JBQVE7Z0JBQU87YUFBUztZQUM1RHBCLFNBQVNJLE1BQU0sQ0FBQyxLQUFLaUIsR0FBRyxDQUFDLENBQUMsT0FBTyxFQUFFcEIsT0FBTyxZQUFZLENBQUM7SUFDM0Q7QUFDRiIsInNvdXJjZXMiOlsid2VicGFjazovL2NhcHN0b25lLXByb2plY3QtaG5nLy4vcGFnZXMvYXBpL2NhdHMvaW5kZXguanM/YTgzNSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgZGJDb25uZWN0IGZyb20gJy4uLy4uLy4uL2RiL2Nvbm5lY3QnO1xuaW1wb3J0IENhdCBmcm9tICcuLi8uLi8uLi9kYi9tb2RlbHMvY2F0JztcblxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlcihyZXF1ZXN0LCByZXNwb25zZSkge1xuICBhd2FpdCBkYkNvbm5lY3QoKTtcblxuICBjb25zdCB7IG1ldGhvZCB9ID0gcmVxdWVzdDtcblxuICBzd2l0Y2ggKG1ldGhvZCkge1xuICAgIGNhc2UgJ0dFVCc6XG4gICAgICB0cnkge1xuICAgICAgICBjb25zdCBjYXRzID0gYXdhaXQgQ2F0LmZpbmQoe30pO1xuICAgICAgICByZXNwb25zZS5zdGF0dXMoMjAwKS5qc29uKHsgc3VjY2VzczogdHJ1ZSwgZGF0YTogY2F0cyB9KVxuICAgICAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICAgICAgcmVzcG9uc2Uuc3RhdHVzKDUwMCkuanNvbih7IHN1Y2Nlc3M6IGZhbHNlLCBtZXNzYWdlOiBlcnJvci5tZXNzYWdlIH0pXG4gICAgICB9XG4gICAgICBicmVhaztcblxuICAgIGNhc2UgJ1BPU1QnOlxuICAgICAgdHJ5IHtcbiAgICAgICAgY29uc3QgY2F0ID0gYXdhaXQgQ2F0LmNyZWF0ZShyZXF1ZXN0LmJvZHkpO1xuICAgICAgICByZXNwb25zZS5zdGF0dXMoMjAxKS5qc29uKHsgc3VjY2VzczogdHJ1ZSwgZGF0YTogY2F0IH0pXG4gICAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgICByZXNwb25zZS5zdGF0dXMoNDAwKS5qc29uKHsgc3VjY2VzczogZmFsc2UsIG1lc3NhZ2U6IGVycm9yLm1lc3NhZ2UgfSlcbiAgICAgIH1cbiAgICAgIGJyZWFrO1xuXG4gICAgY2FzZSAnUFVUJzpcbiAgICAgIHRyeSB7XG4gICAgICAgIGNvbnN0IHsgaWQgfSA9IHJlcXVlc3QucXVlcnk7XG4gICAgICAgIGNvbnN0IGNhdCA9IGF3YWl0IENhdC5maW5kQnlJZEFuZFVwZGF0ZShpZCwgcmVxdWVzdC5ib2R5LCB7XG4gICAgICAgICAgbmV3OiB0cnVlLFxuICAgICAgICAgIHJ1blZhbGlkYXRvcnM6IHRydWVcbiAgICAgICAgfSk7XG5cbiAgICAgICAgaWYgKCFjYXQpIHtcbiAgICAgICAgICByZXR1cm4gcmVzcG9uc2Uuc3RhdHVzKDQwMCkuanNvbih7IHN1Y2Nlc3M6IGZhbHNlLCBtZXNzYWdlOiBgTm8gY2F0IHdpdGggaWQgJHtpZH1gIH0pO1xuICAgICAgICB9XG5cbiAgICAgICAgcmVzcG9uc2Uuc3RhdHVzKDIwMCkuanNvbih7IHN1Y2Nlc3M6IHRydWUsIGRhdGE6IGNhdCB9KTtcbiAgICAgIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgICAgIHJlc3BvbnNlLnN0YXR1cyg0MDApLmpzb24oeyBzdWNjZXNzOiBmYWxzZSwgbWVzc2FnZTogZXJyb3IubWVzc2FnZSB9KTtcbiAgICAgIH1cbiAgICAgIGJyZWFrO1xuXG4gICAgY2FzZSAnREVMRVRFJzpcbiAgICAgIHRyeSB7XG4gICAgICAgIGNvbnN0IHsgaWQgfSA9IHJlcXVlc3QucXVlcnk7XG4gICAgICAgIGNvbnN0IGRlbGV0ZWRDYXQgPSBhd2FpdCBDYXQuZmluZEJ5SWRBbmREZWxldGUoaWQpO1xuXG4gICAgICAgIGlmICghZGVsZXRlZENhdCkge1xuICAgICAgICAgIHJldHVybiByZXNwb25zZS5zdGF0dXMoNDAwKS5qc29uKHsgc3VjY2VzczogZmFsc2UsIG1lc3NhZ2U6IGBObyBjYXQgd2l0aCBpZCAke2lkfWAgfSk7XG4gICAgICAgIH1cblxuICAgICAgICByZXNwb25zZS5zdGF0dXMoMjAwKS5qc29uKHsgc3VjY2VzczogdHJ1ZSwgZGF0YToge30gfSk7XG4gICAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgICByZXNwb25zZS5zdGF0dXMoNDAwKS5qc29uKHsgc3VjY2VzczogZmFsc2UsIG1lc3NhZ2U6IGVycm9yLm1lc3NhZ2UgfSk7XG4gICAgICB9XG4gICAgICBicmVhaztcblxuICAgIGRlZmF1bHQ6XG4gICAgICByZXNwb25zZS5zZXRIZWFkZXIoJ0FsbG93JywgWydHRVQnLCAnUE9TVCcsICdQVVQnLCAnREVMRVRFJ10pO1xuICAgICAgcmVzcG9uc2Uuc3RhdHVzKDQwNSkuZW5kKGBNZXRob2QgJHttZXRob2R9IE5vdCBBbGxvd2VkYClcbiAgfVxufVxuIl0sIm5hbWVzIjpbImRiQ29ubmVjdCIsIkNhdCIsImhhbmRsZXIiLCJyZXF1ZXN0IiwicmVzcG9uc2UiLCJtZXRob2QiLCJjYXRzIiwiZmluZCIsInN0YXR1cyIsImpzb24iLCJzdWNjZXNzIiwiZGF0YSIsImVycm9yIiwibWVzc2FnZSIsImNhdCIsImNyZWF0ZSIsImJvZHkiLCJpZCIsInF1ZXJ5IiwiZmluZEJ5SWRBbmRVcGRhdGUiLCJuZXciLCJydW5WYWxpZGF0b3JzIiwiZGVsZXRlZENhdCIsImZpbmRCeUlkQW5kRGVsZXRlIiwic2V0SGVhZGVyIiwiZW5kIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./pages/api/cats/index.js\n");
 
 /***/ })
 
@@ -188,7 +60,7 @@ async function handler(request, response) {
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(2442));
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/cats/index.js"));
 module.exports = __webpack_exports__;
 
 })();

@@ -1,11 +1,13 @@
+/** @format */
+
 import { HeaderImage } from "@/components/StyledComponents";
 
 export default function HomePage() {
   return (
     <>
       <HeaderImage>
-        <h1>CAPSTONE PROJECT</h1>
-        <h3>
+        <h2>CAPSTONE PROJECT</h2>
+        <p>
           Cats are fascinating creatures that have been revered throughout
           history for their grace, agility, and independence. They are known for
           their playful nature, their ability to hunt with precision, and their
@@ -15,7 +17,7 @@ export default function HomePage() {
           and curious short-haired tabbies, cats bring joy and companionship to
           many households around the world. It&apos;s no wonder they have earned
           the title of being one of the most popular pets globally.
-        </h3>
+        </p>
       </HeaderImage>
     </>
   );
