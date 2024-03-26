@@ -31,6 +31,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/create-profile/cat.js"
+    ],
+    "/lists/cats": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/lists/cats.js"
     ]
   },
   "ampFirstPages": []
