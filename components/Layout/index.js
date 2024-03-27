@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import {
   GradientBackground,
+  Spacer,
   TableFooter,
   TableHeader,
 } from "@/components/StyledComponents";
@@ -20,11 +21,11 @@ export default function Layout({ children }) {
           <Image
             src="/1.png"
             alt="logo"
-            width={90}
-            height={28}
-          />
+            width={60}
+            height={15}
+            />
           Capstone Project for Hung Nguyen - neuefische 2024
-        </TableFooter>
+            </TableFooter>
       </GradientBackground>
     </>
   );

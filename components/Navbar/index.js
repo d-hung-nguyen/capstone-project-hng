@@ -7,6 +7,7 @@ import {
   TableHeader,
   Logo,
   NavItem,
+  Spacer,
 } from "@/components/StyledComponents";
 import Image from "next/image";
 import Link from "next/link";
@@ -60,7 +61,7 @@ const Navbar = () => {
 
     return (
         <>
-            <TableHeader>
+
                 <Hamburger>
                     <NavBarToggle onClick={toggleNavBar}>
                         <Image src="/hamburger.svg" alt="hamburger" width={30} height={30} />
@@ -95,7 +96,7 @@ const Navbar = () => {
                 <Logo>
                     <Image src="/1.png" alt="logo" width={150} height={47} priority />
                 </Logo>
-            </TableHeader>
+      <Spacer />    
         </>
     );
 };

@@ -1,5 +1,71 @@
 /** @format */
 
+import { createGlobalStyle } from "styled-components";
+
+export const theme = {
+  backgroundColors: {
+    div: "#f8eceb",
+    body: "#f9fafb",
+    heroDiv: "#f8eceb",
+    blue: "#0b70db",
+    orange: "#ff5543",
+    purple: "#6b47d6",
+  },
+  colors: {
+    light: "#e6ebf2",
+    grey: "dbe2f0",
+    blue: "#0b70db",
+    orange: "#ff5543",
+    purple: "#6b47d6",
+  },
+
+  fonts: {
+    heading: "Poly, sans-serif",
+    text: "Poly, sans-serif",
+  },
+  fontSizes: {
+    xs: "0.8rem",
+    sm: "1.5rem",
+    me: "3rem",
+    lg: "5rem",
+    xl: "7rem",
+  },
+  spacing: {
+    sm: "15px",
+    md: "25px",
+    lg: "30px",
+    xl: "50px",
+  },
+  box: {
+    shadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+    shadowColor: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+    height: "6rem",
+  },
+  borderRadius: {
+    small: "5px",
+    medium: "10px",
+    large: "15px",
+  },
+
+  margin: {
+    small: "10px",
+    medium: "20px",
+    large: "30px",
+  },
+
+  padding: {
+    small: "10px",
+    medium: "20px",
+    large: "30px",
+  },
+
+  borderWidth: {
+    thin: "1px",
+    medium: "2px",
+    thick: "4px",
+  },
+};
+
 export default createGlobalStyle`
 *,
 ::before,
@@ -17,11 +83,10 @@ export default createGlobalStyle`
 
 html,
 :host {
-  line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
-     tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
@@ -67,57 +132,9 @@ a {
   text-decoration: inherit;
 }
 
-/*
-Add the correct font weight in Edge and Safari.
-*/
-
-b,
-strong {
-  font-weight: bolder;
-}
 
 
 
-code,
-kbd,
-samp,
-pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
-  font-feature-settings: normal; /* 2 */
-  font-variation-settings: normal; /* 3 */
-  font-size: 1em; /* 4 */
-}
-
-/*
-Add the correct font size in all browsers.
-*/
-
-small {
-  font-size: 80%;
-}
-
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
-/*
-1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
-2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-3. Remove gaps between table borders by default.
-*/
 
 table {
   text-indent: 0; /* 1 */
@@ -143,8 +160,6 @@ textarea {
   font-weight: inherit; /* 1 */
   line-height: inherit; /* 1 */
   color: inherit; /* 1 */
-  margin: 0; /* 2 */
-  padding: 0; /* 3 */
 }
 
 /*

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BlueButton } from "../StyledComponents";
+import { BlueButton, Card, H21,F1 } from "../StyledComponents";
 
 
 export default function CreateCatForm() {
@@ -59,8 +59,9 @@ export default function CreateCatForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h2>Create a cat profile</h2>
+        <H21>Create a cat profile</H21>
+    <Card>
+      <F1 onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -132,8 +133,9 @@ export default function CreateCatForm() {
           <br />
         </h4>
         <BlueButton type="submit">Save</BlueButton>
-      </form>
+      </F1>
       <ToastContainer />
+      </Card>
     </>
   );
 }
