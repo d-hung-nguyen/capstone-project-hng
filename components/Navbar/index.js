@@ -61,6 +61,9 @@ const Navbar = () => {
 
     return (
         <>
+                <Logo>
+                    <Image src="/1.png" alt="logo" width={150} height={47} priority />
+                </Logo>
 
                 <Hamburger>
                     <NavBarToggle onClick={toggleNavBar}>
@@ -93,10 +96,8 @@ const Navbar = () => {
                         </NavItem>
                     </MainNav>
                 )}
-                <Logo>
-                    <Image src="/1.png" alt="logo" width={150} height={47} priority />
-                </Logo>
-      <Spacer />    
+                <Spacer />  
+  
         </>
     );
 };

@@ -133,7 +133,7 @@ export const TableHeader = styled.header`
   border-radius: ${theme.borderRadius.medium};
 `;
 export const Spacer = styled.div`
-  height: 20%;
+  height: 10%;
 `;
 
 export const HeaderImage = styled.div`
