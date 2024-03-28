@@ -1,10 +1,8 @@
-/** @format */
-
-import { H11, HeaderImage, P11 } from "@/components/StyledComponents";
+import { H11, HeaderCard, HeaderImage, P11 } from "@/components/StyledComponents";
 
 export default function HomePage() {
   return (
-    <>
+    <HeaderCard>
         <H11>CAPSTONE PROJECT</H11>
         <P11>
           Cats are fascinating creatures that have been revered throughout
@@ -17,6 +15,6 @@ export default function HomePage() {
           many households around the world. It&apos;s no wonder they have earned
           the title of being one of the most popular pets globally.
         </P11>
-    </>
+   </HeaderCard>
   );
 }

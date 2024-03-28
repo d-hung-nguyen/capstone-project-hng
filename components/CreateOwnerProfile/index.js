@@ -1,9 +1,20 @@
-import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { BlueButton } from '../StyledComponents';
-
-
+import {useState} from "react";
+import {ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  Card,
+  H21,
+  Label,
+  HeaderCard,
+  FormField,
+  Input,
+  BlackButton,
+  WhiteButton,
+  CheckboxContainer,
+  F1,
+  StyledFlex,
+  Spacer,
+} from "../StyledComponents";
 
 export default function CreateOwnerForm() {
   const initialOwnerDataState = {
@@ -13,25 +24,25 @@ export default function CreateOwnerForm() {
     city: "",
     telephone: "",
     active: false,
-
   };
-  const [ownerData, setOwnerData] = useState({ ...initialOwnerDataState });
+  const [ownerData, setOwnerData] = useState(initialOwnerDataState);
 
   const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
+    const {name, value, type, checked} = event.target;
     setOwnerData((prevOwnerData) => ({
       ...prevOwnerData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
-      const response = await fetch('/api/owners', {
-        method: 'POST',
+      const response = await fetch("/api/owners", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(ownerData),
       });
@@ -39,7 +50,7 @@ export default function CreateOwnerForm() {
       const result = await response.json();
 
       if (!response.ok) {
-        const errorMessage = result.message || 'Something went wrong.';
+        const errorMessage = result.message || "Something went wrong.";
         toast.error(errorMessage);
         return;
       }
@@ -50,69 +61,95 @@ export default function CreateOwnerForm() {
         setOwnerData(initialOwnerDataState);
       }
     } catch (error) {
-      console.error('Submission error:', error);
-      toast.error('Failed to add the owner due to a network or server error. Please try again.');
+      console.error("Submission error:", error);
+      toast.error(
+        "Failed to add the owner due to a network or server error. Please try again."
+      );
     }
   };
 
+  const handleReset = () => {
+    setOwnerData({...initialOwnerDataState});
+  };
   return (
     <>
-      <form
-        onSubmit={handleSubmit}>
-        <h2>Create a owner profile</h2>
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={ownerData.name}
-          onChange={handleChange}
-          required
-        />
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={ownerData.email}
-          onChange={handleChange}
-        />
-        <label>Address:</label>
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          value={ownerData.address}
-          onChange={handleChange}
-        />
-        <label>City:</label>
-        <input
-          type="text"
-          name="city"
-          placeholder="City"
-          value={ownerData.city}
-          onChange={handleChange}
-        />
-        <label>Telephone:</label>
-        <input
-          type="text"
-          name="telephone"
-          placeholder="Telephone"
-          value={ownerData.telephone}
-          onChange={handleChange}
-        />
-         <h4>Active<input
-          type="checkbox"
-          name="active"
-          checked={ownerData.active}
-          onChange={handleChange}
-        /> <br /></h4>
-        <BlueButton
-          type="submit">
-          Save
-        </BlueButton>
-      </form>
-      <ToastContainer />
+      <HeaderCard>
+        <H21>Create a owner profile</H21>
+      </HeaderCard>
+      <Card>
+        <F1 onSubmit={handleSubmit}>
+          <FormField>
+            <Label htmlFor="name">Name:</Label>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={ownerData.name}
+              onChange={handleChange}
+              required
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="email">Email:</Label>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={ownerData.email}
+              onChange={handleChange}
+              required
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="address">Address:</Label>
+            <Input
+              type="text"
+              name="address"
+              placeholder="Address"
+              value={ownerData.address}
+              onChange={handleChange}></Input>
+          </FormField>
+          <FormField>
+            <Label htmlFor="city">City:</Label>
+            <Input
+              type="text"
+              name="city"
+              placeholder="City"
+              value={ownerData.city}
+              onChange={handleChange}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="telephone">Telephone:</Label>
+            <Input
+              type="text"
+              name="telephone"
+              placeholder="Telephone"
+              value={ownerData.telephone}
+              onChange={handleChange}
+            />
+          </FormField>
+          <CheckboxContainer>
+            <FormField>
+              <Label htmlFor="active">Active:</Label>
+              <Input
+                type="checkbox"
+                id="active"
+                name="active"
+                checked={ownerData.active}
+                onChange={handleChange}
+              />
+            </FormField>
+          </CheckboxContainer>
+        </F1>
+        <StyledFlex>
+          <WhiteButton type="submit">Submit</WhiteButton>
+          <BlackButton type="button" onClick={handleReset}>
+            Reset
+          </BlackButton>
+        </StyledFlex>
+        <ToastContainer />
+      </Card>
     </>
-  )
+  );
 }

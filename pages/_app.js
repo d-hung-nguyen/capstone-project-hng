@@ -2,12 +2,11 @@
 
 import GlobalStyle from "../styles";
 import Layout from "@/components/Layout";
-import { Lato, Poly } from "next/font/google";
-
-const lato = Lato({
+import { Open_Sans, Poly } from "next/font/google";
+const openSans = Open_Sans({
   weight: "400",
   subsets: ["latin"],
-});
+}); 
 const poly = Poly({
   weight: "400",
   subsets: ["latin"],

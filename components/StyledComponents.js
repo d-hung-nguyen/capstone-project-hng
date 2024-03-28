@@ -1,7 +1,5 @@
-/** @format */
-
 import styled, {keyframes} from "styled-components";
-import { theme } from "../styles";
+import {theme} from "../styles";
 
 const fadeUp = keyframes`
   from {
@@ -14,19 +12,12 @@ const fadeUp = keyframes`
   }
 `;
 
-const media = {
-  xsmall: "(max-width: 576px)",
-  small: "(min-width: 576px)",
-  medium: "(min-width: 768px)",
-};
-
 export const H11 = styled.h1`
   animation: ${fadeUp} 1s ease forwards;
   animation-delay: 0.15s;
   background: linear-gradient(to bottom right, black, #a8a29e);
   background-clip: text;
   text-align: center;
-  font-family: 'Display', sans-serif;
   font-size: 2.5rem; /* 4xl */
   font-weight: bold;
   letter-spacing: -0.02em;
@@ -34,22 +25,23 @@ export const H11 = styled.h1`
   text-decoration: none;
   color: transparent;
   opacity: 0;
+  margin-top: 5rem;
   drop-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   text-wrap: balance;
-
   @media (min-width: 768px) {
     font-size: 4.5rem; /* 7xl */
     line-height: 5rem;
+    margin-top: 10rem;
+    magin-bottom: 10rem;
   }
 `;
 export const H21 = styled.h1`
   animation: ${fadeUp} 1s ease forwards;
-  animation-delay: 0.15s;
+  animation-delay: 0.25s;
   background: linear-gradient(to bottom right, black, #a8a29e);
   background-clip: text;
   text-align: center;
-  font-family: 'Display', sans-serif;
-  font-size: 1.8rem; /* 4xl */
+  font-size: 1.5rem; /* 4xl */
   font-weight: bold;
   letter-spacing: -0.02em;
   text-decoration: none;
@@ -58,13 +50,13 @@ export const H21 = styled.h1`
   text-wrap: balance;
 
   @media (min-width: 768px) {
-    font-size: 2.5rem; /* 7xl */
+    font-size: 2rem; /* 7xl */
     line-height: 3 rem;
   }
 `;
 
 export const P11 = styled.p`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   animation: ${fadeUp} 1s ease forwards;
   animation-delay: 0.25s;
   text-align: center;
@@ -76,64 +68,170 @@ export const P11 = styled.p`
     font-size: 1.25rem; /* xl */
   }
 `;
+export const HeaderCard = styled.div`
+  border-radius: 0.5rem;
+  margin: 20px auto;
+  padding: 30px;
+  width: 80%;
+  background-color: transparent;
+  dispaly: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 export const Card = styled.div`
-  position: relative;
-  border-radius: 1rem; /* rounded-xl */
-  border: 1px solid #e5e7eb; /* border-gray-200 */
-  margin: 1rem; /* space-x-4 */
-  padding: 1rem; /* p-6 */
-  background: -webkit-linear-gradient(180deg, hsla(0, 0%, 99%, 1) 0%, hsla(220, 100%, 96%, 1) 100%);  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: hsla(0, 0%, 100%, 1);
+  background: radial-gradient(
+    circle,
+    hsla(0, 0%, 100%, 1) 0%,
+    hsla(0, 0%, 95%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFFFFF", endColorstr="#F1F1F1", GradientType=1 );
+  margin: 20px auto;
+  padding: 30px;
+  max-width: 600px;
 `;
 
 export const F1 = styled.form`
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+export const FormField = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+export const FormField1 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 `;
 
-export const Input1= styled.input`
-margin: 0 auto;
-max-width: 32rem; /* max-w-md */
-text-align: center;
+export const Input = styled.input`
+  padding: 10px;
+  flex: 1;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border: none;
+  width: 100%;
+  font-size: 1rem;
 `;
 
+export const Option = styled.option`
+  padding: 10px;
+  flex: 1;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border: none;
+  width: 100%;
+  font-size: 1rem;
+`;
+
+export const Label = styled.label`
+  padding: 10px;
+  text-align: left;
+  width: 150px;
+`;
+
+export const Select = styled(Input).attrs({as: "select"})``;
+export const CheckboxContainer = styled(FormField)`
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  width: 10%;
+`;
+export const StyledFlex = styled.div`
+    display: flex;
+  justfiy-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  
+  
+    `;
+
+export const BlackButton = styled.button`
+  background-color: black;
+  color: white;
+
+  border-radius: 5px;
+  padding: 6px 8px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width:  6rem;
+  heigth: 3rem;
+  &:hover {
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+  }
+`;
+
+export const WhiteButton = styled.button`
+  background-color: orange;
+  color: black;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 6px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width:  6rem;
+  heigth: 3rem;
+  margin: 5px;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+`;
 
 export const GradientBackground = styled.div`
-background: -webkit-linear-gradient(135deg, hsla(223, 100%, 99%, 1) 0%, hsla(220, 100%, 96%, 1) 51%);
+  background: hsla(0, 0%, 91%, 1);
 
+  background: linear-gradient(
+    360deg,
+    hsla(0, 0%, 91%, 1) 0%,
+    hsla(0, 0%, 100%, 1) 100%
   );
-  width: 100%;
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E7E7E7", endColorstr="#FFFFFF", GradientType=1 );
   height: 100vh;
 `;
 export const Logo = styled.div`
-  position: absolute;
-  right: 0px;
-
+  padding: 20px;
+  margin: 10px;
 `;
 
-export const TableFooter = styled.div` 
-width: 100%;
-display: flex;
-flex-direction: row;
-position: fixed;
-bottom  : 0;
-  padding: ${theme.padding.small};
+export const TableFooter = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  position: fixed;
+  bottom: 0;
+  padding: 30px;
   font-size: ${theme.fontSizes.xs};
-  border-top: 1px solid ${theme.colors.orange};
-
-  }
+  border-top: 1px solid black;
+  background-color: orange;
 `;
+
 export const TableHeader = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  opacity: 0.8;
   box-shadow: ${theme.box.shadow};
   border-radius: ${theme.borderRadius.medium};
+  background-color: orange;
 `;
 export const Spacer = styled.div`
-  height: 10%;
+  height: 20px;
+  border-bottom: 1px solid grey;
 `;
 
 export const HeaderImage = styled.div`
@@ -143,17 +241,23 @@ export const HeaderImage = styled.div`
   box-shadow: ${theme.box.shadow};
   padding: ${theme.padding.large};
 `;
-
-export const StyledButton = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 export const StyledHero = styled.div`
   position: absolute;
   z-index: 10;
 `;
 export const MainNav = styled.ul`
-  flex-direction: column;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px;
+    position: absolute;
+    left: 50px;
+    padding: 20px;
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: gap;
+  gap: 10x;
 `;
 export const NavItem = styled.li`
   padding: 10px;
@@ -161,26 +265,46 @@ export const NavItem = styled.li`
   font-size: 1rem;
   text-color: black;
   position: relative;
+  font-weight: 400;
+  border-bottom: 1px solid orange;
   &:hover {
-    color: ${theme.colors.blue};
+    color: ${theme.colors.orange};
   }
 `;
 export const SubNav = styled.ul`
   flex-direction: column;
+  justify-content: center;
+  align-items: 1;
 `;
+
+export const SubNavItem = styled.li`
+  cursor: pointer;
+  font-size: 1rem;
+  width: 10%;
+  font-weight: 100;
+  color: gray;
+
+  border-bottom: 0.5px solid black;
+  position: relative;
+  &:hover {
+    color: ${theme.colors.orange};
+  }
+`;
+
 export const NavBarToggle = styled.span`
   cursor: pointer;
   color: rgba(255, 255, 255, 0.8);
   font-size: 24px;
 `;
 export const Hamburger = styled.div`
-margin-top: 10px;
+margin: 20px;
+padding: 20px;
 
   }
 `;
 
 export const BlueButton = styled.button`
-  background-color: ${theme.backgroundColors.blue};
+  background-color: black;
   color: white;
   border: none;
   border-radius: 4px;
