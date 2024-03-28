@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const theme = {
   backgroundColors: {
-    div: "#f8eceb",
+    div: "linear-gradient(to bottom right, #E0E7FF 25%, #ffffff 50%, #CFFAFE 75%)",
     body: "#f9fafb",
     heroDiv: "#f8eceb",
     blue: "#0b70db",
@@ -83,10 +83,11 @@ export default createGlobalStyle`
 
 html,
 :host {
+  line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
-  tab-size: 4; /* 3 */
+     tab-size: 4; /* 3 */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
@@ -132,9 +133,57 @@ a {
   text-decoration: inherit;
 }
 
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
 
 
 
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-feature-settings: normal; /* 2 */
+  font-variation-settings: normal; /* 3 */
+  font-size: 1em; /* 4 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
 
 table {
   text-indent: 0; /* 1 */
@@ -148,7 +197,7 @@ table {
 3. Remove default padding in all browsers.
 */
 
-button,
+
 input,
 optgroup,
 select,
@@ -160,13 +209,15 @@ textarea {
   font-weight: inherit; /* 1 */
   line-height: inherit; /* 1 */
   color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
 }
 
 /*
 Remove the inheritance of text transform in Edge and Firefox.
 */
 
-button,
+,
 select {
   text-transform: none;
 }
@@ -174,19 +225,6 @@ select {
 /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
-*/
-
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  -webkit-appearance: button; /* 1 */
-  background-color: transparent; /* 2 */
-  background-image: none; /* 2 */
-}
-
-/*
-Use the modern Firefox focus style for all focusable elements.
 */
 
 :-moz-focusring {
@@ -306,13 +344,13 @@ textarea {
 
 input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
+  color: "orange"; /* 2 */
 }
 
 input::placeholder,
 textarea::placeholder {
   opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
+  color:orange; /* 2 */
 }
 
 /*
@@ -366,7 +404,7 @@ video {
      -moz-appearance: none;
           appearance: none;
   background-color: #fff;
-  border-color: #6b7280;
+  border-color: orange;
   border-width: 1px;
   border-radius: 0px;
   padding-top: 0.5rem;
@@ -388,16 +426,16 @@ video {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  border-color: #2563eb;
+  border-color: orange;
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-  color: #6b7280;
+  color: orange;
   opacity: 1;
 }
 
 input::placeholder,textarea::placeholder {
-  color: #6b7280;
+  color: orange;
   opacity: 1;
 }
 
@@ -455,7 +493,7 @@ select {
   flex-shrink: 0;
   height: 1rem;
   width: 1rem;
-  color: #2563eb;
+  color: orange;
   background-color: #fff;
   border-color: #6b7280;
   border-width: 1px;

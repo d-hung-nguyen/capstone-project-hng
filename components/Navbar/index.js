@@ -8,6 +8,7 @@ import {
   Logo,
   NavItem,
   Spacer,
+  SubNavItem,
 } from "@/components/StyledComponents";
 import Image from "next/image";
 import Link from "next/link";
@@ -61,17 +62,16 @@ const Navbar = () => {
 
     return (
         <>
-                <Logo>
-                    <Image src="/1.png" alt="logo" width={150} height={47} priority />
-                </Logo>
+        <TableHeader>
 
+               
                 <Hamburger>
                     <NavBarToggle onClick={toggleNavBar}>
                         <Image src="/hamburger.svg" alt="hamburger" width={30} height={30} />
                     </NavBarToggle>
                 </Hamburger>
                 {displayNav && (
-                    <MainNav>
+                  <MainNav>
                         <NavItem onClick={handleHomeClick}>
                             <Link href="/">
                                 <h4>Home</h4>
@@ -80,23 +80,31 @@ const Navbar = () => {
                         <NavItem onClick={toggleCreateProfileSubmenu}>
                             <h4>Create Profile</h4>
                             {showCreateProfileSubmenu && (
-                                <SubNav>
+                              <SubNav>
+                                   < SubNavItem>
                                     <Link onClick={toggleSubListItems} href="/create-profile/cat"><h4>Cat</h4></Link>
+                                    </SubNavItem>
+                                    <SubNavItem>
                                     <Link onClick={toggleSubListItems} href="/create-profile/owner"><h4>Owner</h4></Link>
+                                </SubNavItem>
                                 </SubNav>
                             )}
                         </NavItem>
                         <NavItem onClick={toggleListsSubmenu}>
                             <h4>Lists</h4>
                             {showListsSubmenu && (
-                                <SubNav>
+                              <SubNav>
                                     <Link onClick={toggleSubListItems} href="/lists/cats"><h4>Cats</h4></Link>
                                 </SubNav>
                             )}
                         </NavItem>
                     </MainNav>
                 )}
-                <Spacer />  
+                 <Logo>
+                    <Image src="/logo.png" alt="logo" width={110} height={30} priority />
+                </Logo>
+
+                </TableHeader>
   
         </>
     );
