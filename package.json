@@ -14,10 +14,14 @@
         "eslint-config-next": "13.4.8",
         "mongoose": "^8.2.2",
         "next": "13.4.8",
+        "next-hooks": "^0.0.1",
         "react": "18.2.0",
         "react-dom": "18.2.0",
+        "react-hook-library": "^0.0.1",
+        "react-router-dom": "^6.22.3",
         "react-toastify": "^10.0.5",
-        "styled-components": "^6.0.2"
+        "styled-components": "^6.0.2",
+        "swr": "^2.2.5"
     },
     "devDependencies": {
         "@svgr/webpack": "^8.0.1",

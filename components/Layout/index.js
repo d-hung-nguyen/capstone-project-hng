@@ -1,32 +1,24 @@
 /** @format */
 
-import Navbar from "@/components/Navbar";
+import {Navbar} from "@/components/Navbar";
 import {
-  GradientBackground,
-  Spacer,
+  Background,
+  PageTitle,
   TableFooter,
-  TableHeader,
 } from "@/components/StyledComponents";
 import Image from "next/image";
+import {Wrapper} from "../boxes";
 
-export default function Layout({ children }) {
+export default function Layout({children}) {
   return (
     <>
-      <GradientBackground>
+      <Wrapper>
         <Navbar />
-
         <main>{children}</main>
-
-          </GradientBackground>
         <TableFooter>
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={60}
-            height={15}
-            />
           Capstone Project for Hung Nguyen - neuefische 2024
-            </TableFooter>
+        </TableFooter>
+      </Wrapper>
     </>
   );
 }

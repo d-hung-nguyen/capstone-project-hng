@@ -13,7 +13,12 @@ import {
   P11,
   CheckboxContainer,
   FormField1,
+  H31,
+  ButtonContainer,
+  H32,
+  H4,
 } from "@/components/StyledComponents";
+import {Wrapper} from "../boxes";
 
 function CatEdit({cat, onSave, onCancel}) {
   const [name, setName] = useState(cat.name);
@@ -47,19 +52,17 @@ function CatEdit({cat, onSave, onCancel}) {
   };
 
   const handleReset = () => {
-    setCatData({ ...catData, submitted: false });
+    setCatData({...catData, submitted: false});
   };
   return (
     <>
-      <HeaderCard>
-        <H21>
-          Edit profile for
-          <br />
-        </H21>
-        <P11>{cat.name}</P11>
-      </HeaderCard>
-      <Card>
+      <Wrapper>
         <HeaderCard>
+          <H32>
+            Edit profile for <br /> <H4>{cat.name}</H4>
+          </H32>
+        </HeaderCard>
+        <Card>
           <F1 onSubmit={handleSubmit}>
             <FormField>
               <Label htmlFor="name">Name:</Label>
@@ -86,7 +89,7 @@ function CatEdit({cat, onSave, onCancel}) {
                 id="gender"
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}>
-                <option value="">Select Gender</option>
+                <option value="">- - - </option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </Select>
@@ -101,7 +104,7 @@ function CatEdit({cat, onSave, onCancel}) {
               />
             </FormField>
             <FormField>
-              <Label htmlFor="dateOfBirth">Date of Birth:</Label>
+              <Label htmlFor="dateOfBirth">Dob:</Label>
               <Input
                 id="dateOfBirth"
                 type="date"
@@ -110,7 +113,7 @@ function CatEdit({cat, onSave, onCancel}) {
               />
             </FormField>
             <FormField>
-              <Label htmlFor="identityNumber">Identity Number:</Label>
+              <Label htmlFor="identityNumber">ID Nr.:</Label>
               <Input
                 id="identityNumber"
                 type="text"
@@ -119,7 +122,7 @@ function CatEdit({cat, onSave, onCancel}) {
               />
             </FormField>
             <FormField>
-              <Label htmlFor="transponderCode">Transponder Code:</Label>
+              <Label htmlFor="transponderCode">Transponder:</Label>
               <Input
                 id="transponderCode"
                 type="text"
@@ -128,27 +131,27 @@ function CatEdit({cat, onSave, onCancel}) {
               />
             </FormField>
 
-            <CheckboxContainer>
-              <FormField>
-                <Label htmlFor="active">Active:</Label>
-              </FormField>
-
-              <FormField1>
-                <Input
-                  id="active"
-                  type="checkbox"
-                  checked={active}
-                  onChange={(e) => setActive(e.target.checked)}
-                />
-              </FormField1>
-            </CheckboxContainer>
+            <FormField1>
+              <Label htmlFor="active">Active:</Label>
+              <input
+                id="active"
+                type="checkbox"
+                checked={active}
+                onChange={(e) => setActive(e.target.checked)}
+              />
+            </FormField1>
           </F1>
-        </HeaderCard>
-      </Card>
-              <WhiteButton type="submit"> Save</WhiteButton>
-              <BlackButton type="button" onClick={onCancel}>
-        Cancel
-      </BlackButton>
+          <ButtonContainer>
+            <WhiteButton type="submit" onClick={handleSubmit}>
+              {" "}
+              Save
+            </WhiteButton>
+            <BlackButton type="button" onClick={onCancel}>
+              Cancel
+            </BlackButton>
+          </ButtonContainer>
+        </Card>
+      </Wrapper>
     </>
   );
 }

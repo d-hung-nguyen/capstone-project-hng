@@ -22,10 +22,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/create-profile/cat": [
+    "/cats/[catId]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/create-profile/cat.js"
+      "static/chunks/pages/cats/[catId].js"
     ],
     "/lists/cats": [
       "static/chunks/webpack.js",

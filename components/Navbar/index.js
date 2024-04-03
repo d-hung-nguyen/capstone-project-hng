@@ -1,113 +1,152 @@
-import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import {useState, useEffect, useRef} from "react";
+import {useRouter} from "next/router";
+import Link from "next/link";
 import {
   Hamburger,
-  NavBarToggle,
-  MainNav,
-  SubNav,
-  TableHeader,
   Logo,
+  MainNav,
   NavItem,
-  Spacer,
+  SubNav,
   SubNavItem,
-} from "@/components/StyledComponents";
-import Image from "next/image";
-import Link from "next/link";
+  TableHeader,
+} from "../StyledComponents";
+import {useFeedNavItems} from "../FeedavContext";
+import {Box, BoxNav, BoxSwim, WrapperN, WrapperR} from "../boxes";
+import {set} from "mongoose";
 
-const Navbar = () => {
+export const Navbar = () => {
+  const [activeCats, setActiveCats] = useState([]);
   const [displayNav, setDisplayNav] = useState(false);
-  const navRef = useRef(); 
-  const toggleNavBar = () => {
-    setDisplayNav(!displayNav);
+  const [showCreateProfileSubmenu, setShowCreateProfileSubmenu] =
+    useState(false);
+  const [showListsSubmenu, setShowListsSubmenu] = useState(false);
+  const navRef = useRef();
+  const router = useRouter();
+  useEffect(() => {
+    const fetchActiveCats = async () => {
+      const res = await fetch("/api/cats?active=true");
+      const data = await res.json();
+      setActiveCats(data.data);
+    };
+
+    fetchActiveCats();
+  }, []);
+
+  const navigateToCat = (catId) => {
+    router.push(`/cats/${catId}`);
   };
 
-  const closeNavBar = () => {
-    setDisplayNav(false);
-  };
+  const toggleNavBar = () => setDisplayNav(!displayNav);
+
+  function toggleCreateProfileSubmenu() {
+    setShowCreateProfileSubmenu(!showCreateProfileSubmenu);
+    setShowListsSubmenu(false);
+  }
+
+  function toggleListsSubmenu() {
+    setShowListsSubmenu(!showListsSubmenu);
+    setShowCreateProfileSubmenu(false);
+  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
-        closeNavBar();
+        setDisplayNav(false);
+        setShowCreateProfileSubmenu(false);
+        setShowListsSubmenu(false);
       }
     };
-    if (displayNav) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [displayNav]);
-  const [showCreateProfileSubmenu, setShowCreateProfileSubmenu] = useState(false);
-    const [showListsSubmenu, setShowListsSubmenu] = useState(false);
 
-    const handleHomeClick = () => {
-        setShowCreateProfileSubmenu(false);
-        setShowListsSubmenu(false);
-    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-    const toggleCreateProfileSubmenu = () => {
-        setShowCreateProfileSubmenu(!showCreateProfileSubmenu);
-        setShowListsSubmenu(false);
-    };
+  const handleLinkClick = (path) => {
+    setDisplayNav(false);
+    router.push(path);
+  };
 
-    const toggleListsSubmenu = () => {
-        setShowListsSubmenu(!showListsSubmenu);
-        setShowCreateProfileSubmenu(false);
-    };
+  return (
+    <>
+      <WrapperN ref={navRef}>
+        <Logo>
+          <Image src="/1.svg" alt="logo" width={130} height={130} priority />
+        </Logo>
+        <Image
+          src="/2.png"
+          alt="Hero Image"
+          fill={true}
+          objectFit="cover"
+          priority={true}
+        />
+        <BoxSwim>
+          <Hamburger onClick={toggleNavBar}>
+            <Image
+              src="/hamburger.svg"
+              alt="hamburger"
+              width={30}
+              height={30}
+            />
+          </Hamburger>
+        </BoxSwim>
 
-    const toggleSubListItems = () => {
-        setDisplayNav(false);
-    };
+        {displayNav && (
+          <MainNav>
+            <NavItem onClick={handleLinkClick}>
+              <Link href="/">
+                <h5>Home</h5>
+              </Link>
+            </NavItem>
+            <NavItem onClick={() => setShowListsSubmenu(!showListsSubmenu)}>
+              <h5>Active Cats</h5>
+              {showListsSubmenu && (
+                <SubNav>
+                  {activeCats.map((cat) => (
+                    <SubNavItem
+                      key={cat._id}
+                      onClick={() => navigateToCat(cat._id)}>
+                      {cat.name}
+                    </SubNavItem>
+                  ))}
+                </SubNav>
+              )}
+            </NavItem>
+            <NavItem onClick={toggleCreateProfileSubmenu}>
+              <h5>Create Profile</h5>
 
-
-    return (
-        <>
-        <TableHeader>
-
-               
-                <Hamburger>
-                    <NavBarToggle onClick={toggleNavBar}>
-                        <Image src="/hamburger.svg" alt="hamburger" width={30} height={30} />
-                    </NavBarToggle>
-                </Hamburger>
-                {displayNav && (
-                  <MainNav>
-                        <NavItem onClick={handleHomeClick}>
-                            <Link href="/">
-                                <h4>Home</h4>
-                            </Link>
-                        </NavItem>
-                        <NavItem onClick={toggleCreateProfileSubmenu}>
-                            <h4>Create Profile</h4>
-                            {showCreateProfileSubmenu && (
-                              <SubNav>
-                                   < SubNavItem>
-                                    <Link onClick={toggleSubListItems} href="/create-profile/cat"><h4>Cat</h4></Link>
-                                    </SubNavItem>
-                                    <SubNavItem>
-                                    <Link onClick={toggleSubListItems} href="/create-profile/owner"><h4>Owner</h4></Link>
-                                </SubNavItem>
-                                </SubNav>
-                            )}
-                        </NavItem>
-                        <NavItem onClick={toggleListsSubmenu}>
-                            <h4>Lists</h4>
-                            {showListsSubmenu && (
-                              <SubNav>
-                                    <Link onClick={toggleSubListItems} href="/lists/cats"><h4>Cats</h4></Link>
-                                </SubNav>
-                            )}
-                        </NavItem>
-                    </MainNav>
-                )}
-                 <Logo>
-                    <Image src="/logo.png" alt="logo" width={110} height={30} priority />
-                </Logo>
-
-                </TableHeader>
-  
-        </>
-    );
+              {showCreateProfileSubmenu && (
+                <SubNav>
+                  <SubNavItem>
+                    <Link href="/create-profile/cat" onClick={handleLinkClick}>
+                      <h5>Cat</h5>
+                    </Link>
+                  </SubNavItem>
+                  <SubNavItem>
+                    <Link
+                      href="/create-profile/owner"
+                      onClick={handleLinkClick}>
+                      <h5>Owner</h5>
+                    </Link>
+                  </SubNavItem>
+                </SubNav>
+              )}
+            </NavItem>
+            <NavItem onClick={toggleListsSubmenu}>
+              <h5>Lists</h5>
+              {showListsSubmenu && (
+                <SubNav>
+                  <SubNavItem>
+                    <Link href="/lists/cats" onClick={handleLinkClick}>
+                      <h5>Cats</h5>
+                    </Link>
+                  </SubNavItem>
+                </SubNav>
+              )}
+            </NavItem>
+          </MainNav>
+        )}
+      </WrapperN>
+    </>
+  );
 };
-
-export default Navbar;
