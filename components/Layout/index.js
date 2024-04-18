@@ -1,24 +1,11 @@
-/** @format */
+import Navbar1 from "../NavItem";
 
-import {Navbar} from "@/components/Navbar";
-import {
-  Background,
-  PageTitle,
-  TableFooter,
-} from "@/components/StyledComponents";
-import Image from "next/image";
-import {Wrapper} from "../boxes";
-
-export default function Layout({children}) {
-  return (
-    <>
-      <Wrapper>
-        <Navbar />
-        <main>{children}</main>
-        <TableFooter>
-          Capstone Project for Hung Nguyen - neuefische 2024
-        </TableFooter>
-      </Wrapper>
-    </>
-  );
+export default function Layout({ children }) {
+ return (
+  <>
+   <Navbar1 />
+   <main>{children}</main>
+   <footer>Capstone Project 2024</footer>
+  </>
+ );
 }

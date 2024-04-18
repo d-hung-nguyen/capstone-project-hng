@@ -353,7 +353,7 @@ export const MainNav = styled.ul`
   flex-direction: column;
   cursor: pointer;
   just-content: right;
-  background: rgba(232, 232, 237, 0.4);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(20px);
   transition: opacity 0.32s cubic-bezier(0.4, 0, 0.6, 1) 80ms,
     visibility 0.32s step-end 80ms;

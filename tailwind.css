@@ -1,6 +1,9 @@
-import { createGlobalStyle } from "styled-components";
 
-export const GlobabalStyles = createGlobalStyle`
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 *,
 ::before,
 ::after {
@@ -12,7 +15,7 @@ export const GlobabalStyles = createGlobalStyle`
 
 ::before,
 ::after {
-  --tw-content: '';
+  --tw-content: "";
 }
 
 
@@ -287,4 +290,3 @@ video {
 [hidden] {
   display: none;
 }
-`;
