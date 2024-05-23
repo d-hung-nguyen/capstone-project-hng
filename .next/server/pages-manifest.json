@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/create-profile/owner": "pages/create-profile/owner.js",
-  "/create-profile/cat": "pages/create-profile/cat.js",
-  "/lists/cats": "pages/lists/cats.js"
+  "/": "pages/index.js",
+  "/api/cats": "pages/api/cats.js"
 }

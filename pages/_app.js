@@ -1,24 +1,21 @@
-/** @format */
-
-import GlobalStyle from "../styles";
-import Layout from "@/components/Layout";
+import { GlobabalStyles } from "../styles";
+import "../globals.css";
 import { Open_Sans, Poly } from "next/font/google";
+import Layout from "../components/Layout";
+
 const openSans = Open_Sans({
-  weight: "400",
-  subsets: ["latin"],
-}); 
+ weight: "400",
+ subsets: ["latin"],
+});
 const poly = Poly({
-  weight: "400",
-  subsets: ["latin"],
+ weight: "400",
+ subsets: ["latin"],
 });
 
 export default function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <GlobalStyle />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </>
-  );
+ return (
+  <Layout>
+   <Component {...pageProps} />
+  </Layout>
+ );
 }
