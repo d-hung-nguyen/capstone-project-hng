@@ -1,11 +1,13 @@
 /** @format */
 
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import {
-  BlueButton,
+  BlackButton,
   Card,
-  RedButton,
-  StyledCatsList,
+  H21,
+  HeaderCard,
+  StyledFlex,
+  WhiteButton,
 } from "@/components/StyledComponents";
 import CatEdit from "../CatEdit";
 
@@ -49,57 +51,69 @@ export default function CatsList() {
 
   function handleEditSave(updatedCat) {
     setCats((prevCats) =>
-      prevCats.map((cat) => (cat._id === updatedCat._id ? updatedCat : cat)),
+      prevCats.map((cat) => (cat._id === updatedCat._id ? updatedCat : cat))
     );
     setEditingCat(null);
   }
 
   return (
     <>
-      {cats.map((cat) => {
-        if (editingCat && cat._id === editingCat._id) {
+      <HeaderCard>
+        <H21>List of cats</H21>
+      </HeaderCard>
+      <StyledFlex>
+        {cats.map((cat) => {
+          if (editingCat && cat._id === editingCat._id) {
+            return (
+              <CatEdit
+                key={cat._id}
+                cat={editingCat}
+                onCancel={handleEditCancel}
+                onSave={handleEditSave}
+              />
+            );
+          }
+
           return (
-            <CatEdit
-              key={cat._id}
-              cat={editingCat}
-              onCancel={handleEditCancel}
-              onSave={handleEditSave}
-            />
+            <>
+              <Card key={cat._id}>
+                <h3>{cat.name}</h3>
+
+                <p>
+                  <strong>Gender:</strong> {cat.gender}
+                </p>
+                <p>
+                  <strong>Breed:</strong> {cat.breed}
+                </p>
+                <p>
+                  <strong>Color:</strong> {cat.color}
+                </p>
+                <p>
+                  <strong>Date of birth:</strong> {cat.dateOfBirth}
+                </p>
+                <p>
+                  <strong>Identity number:</strong> {cat.identityNumber}
+                </p>
+                <p>
+                  <strong>Transponder code:</strong> {cat.transponderCode}
+                </p>
+                <p>
+                  <strong>Active:</strong> {cat.active ? "Yes" : "No"}
+                </p>
+
+                <StyledFlex>
+                  <WhiteButton onClick={() => handleEditClick(cat)}>
+                    Edit
+                  </WhiteButton>
+                  <BlackButton onClick={() => handleDelete(cat._id)}>
+                    Delete
+                  </BlackButton>
+                </StyledFlex>
+              </Card>
+            </>
           );
-        }
-
-        return (
-          <Card key={cat._id}>
-            <StyledCatsList>
-              <h3>{cat.name}</h3>
-
-              <p>
-                <strong>Gender:</strong> {cat.gender}
-              </p>
-              <p>
-                <strong>Breed:</strong> {cat.breed}
-              </p>
-              <p>
-                <strong>Color:</strong> {cat.color}
-              </p>
-              <p>
-                <strong>Date of birth:</strong> {cat.dateOfBirth}
-              </p>
-              <p>
-                <strong>Identity number:</strong> {cat.identityNumber}
-              </p>
-              <p>
-                <strong>Transponder code:</strong> {cat.transponderCode}
-              </p>
-              <p>
-                <strong>Active:</strong> {cat.active ? "Yes" : "No"}
-              </p>
-            </StyledCatsList>
-            <BlueButton onClick={() => handleEditClick(cat)}>Edit</BlueButton>
-            <RedButton onClick={() => handleDelete(cat._id)}>Delete</RedButton>
-          </Card>
-        );
-      })}
+        })}
+      </StyledFlex>
     </>
   );
 }

@@ -17,16 +17,16 @@ export default function Layout({ children }) {
 
         <main>{children}</main>
 
+          </GradientBackground>
         <TableFooter>
           <Image
-            src="/1.png"
+            src="/logo.png"
             alt="logo"
             width={60}
             height={15}
             />
           Capstone Project for Hung Nguyen - neuefische 2024
             </TableFooter>
-      </GradientBackground>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import CreateCatForm from "@/components/CreatCatProfile";   
+import CreateCatForm from "@/components/CreatCatProfile";
 
 export default function CreateCatProfilePage() {
   return (

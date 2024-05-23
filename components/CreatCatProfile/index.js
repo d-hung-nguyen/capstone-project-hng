@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BlueButton, Card, H21,F1 } from "../StyledComponents";
-
+import { Card, H21, Label, HeaderCard, FormField, Input, WhiteButton, BlackButton ,CheckboxContainer, F1 , Select, StyledFlex} from '../StyledComponents';
 
 export default function CreateCatForm() {
   const initialCatDataState = {
@@ -15,7 +14,9 @@ export default function CreateCatForm() {
     transponderCode: "",
     active: false,
   };
+
   const [catData, setCatData] = useState({ ...initialCatDataState });
+
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -39,15 +40,13 @@ export default function CreateCatForm() {
       const result = await response.json();
 
       if (!response.ok) {
-        const errorMessage = result.message || "Something went wrong.";
-        toast.error(errorMessage);
-        return; //loose it
+        toast.error(result.message || "Something went wrong.");
+        return;
       }
 
       if (response.status === 201) {
-        console.log(result);
         toast.success(`${catData.name} added successfully!`);
-        setCatData(initialCatDataState);
+        setCatData({ ...initialCatDataState }); 
       }
     } catch (error) {
       console.error("Submission error:", error);
@@ -57,84 +56,109 @@ export default function CreateCatForm() {
     }
   };
 
+  const handleReset = () => {
+    setCatData({ ...initialCatDataState }); 
+  };
+
   return (
     <>
+      <HeaderCard>
         <H21>Create a cat profile</H21>
-    <Card>
-      <F1 onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={catData.name}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="breed">Breed:</label>
-        <input
-          type="text"
-          name="breed"
-          placeholder="Breed"
-          value={catData.breed}
-          onChange={handleChange}
-        />
-        <label htmlFor="gender">Gender:</label>
-        <select
-          id="gender"
-          name="gender"
-          value={catData.gender}
-          onChange={handleChange}
-        >
-          <option value="">Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-        <label htmlFor="color">Color:</label>
-        <input
-          type="text"
-          name="color"
-          placeholder="Color"
-          value={catData.color}
-          onChange={handleChange}
-        />
-        <label htmlFor="dateOfBirth">Date of Birth:</label>
-        <input
-          type="date"
-          name="dateOfBirth"
-          placeholder="Date of Birth"
-          value={catData.dateOfBirth}
-          onChange={handleChange}
-        />
-        <label htmlFor="identityNumber">Identity Number:</label>
-        <input
-          type="text"
-          name="identityNumber"
-          placeholder="Identity Number"
-          value={catData.identityNumber}
-          onChange={handleChange}
-        />
-        <label htmlFor="transponderCode">Transponder Code:</label>
-        <input
-          type="text"
-          name="transponderCode"
-          placeholder="Transponder Code"
-          value={catData.transponderCode}
-          onChange={handleChange}
-        />
-        <h4>
-          Active
-          <input
-            type="checkbox"
-            name="active"
-            checked={catData.active}
-            onChange={handleChange}
-          />{" "}
-          <br />
-        </h4>
-        <BlueButton type="submit">Save</BlueButton>
-      </F1>
-      <ToastContainer />
+      </HeaderCard>
+      <Card>
+        <F1 onSubmit={handleSubmit}>
+          <FormField>
+            <Label htmlFor="name">Name:</Label>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={catData.name}
+              onChange={handleChange}
+              required
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="breed">Breed:</Label>
+            <Input
+              type="text"
+              name="breed"
+              placeholder="Breed"
+              value={catData.breed}
+              onChange={handleChange}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="gender">Gender:</Label>
+            <Select
+              name="gender"
+              value={catData.gender}
+              onChange={handleChange}
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </Select>
+          </FormField>
+          <FormField>
+            <Label htmlFor="color">Color:</Label>
+            <Input
+              type="text"
+              name="color"
+              placeholder="Color"
+              value={catData.color}
+              onChange={handleChange}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="dateOfBirth">Date of Birth:</Label>
+            <Input
+              type="date"
+              name="dateOfBirth"
+              value={catData.dateOfBirth}
+              onChange={handleChange}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="identityNumber">Identity Number:</Label>
+            <Input
+              type="text"
+              name="identityNumber"
+              value={catData.identityNumber}
+              onChange={handleChange}
+            />
+          </FormField>
+          <FormField>
+            <Label htmlFor="transponderCode">Transponder Code:</Label>
+            <Input
+              type="text"
+              name="transponderCode"
+              value={catData.transponderCode}
+              onChange={handleChange}
+            />
+          </FormField>
+          <CheckboxContainer>
+            <FormField>
+            <Label htmlFor="active">Active:</Label>
+            </FormField>
+            <FormField>
+            <input
+              type="checkbox"
+              name="active"
+              checked={catData.active}
+              onChange={handleChange}
+            />
+            </FormField>
+          </CheckboxContainer>
+          <StyledFlex>
+
+          <WhiteButton type="submit">Submit</ WhiteButton>
+          <BlackButton type="button" onClick={handleReset}>
+            Reset
+          </BlackButton>
+          </StyledFlex>
+        </F1>
+        <ToastContainer />
       </Card>
     </>
   );
